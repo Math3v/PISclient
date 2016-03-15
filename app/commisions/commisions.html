@@ -1,0 +1,20 @@
+<h1>Commisions</h1>
+<ul>
+	<li ng-repeat="commision in users">
+		<span ng-hide="commision.edit">
+			{{commision.name}}, {{commision.code}}, {{commision.note}}, 
+			{{commision.laboratory}}, {{commision.date}}, {{APIuserId}}
+		</span>
+		<span ng-show="commision.edit">
+			<input type="text" ng-model="commision.name" placeholder="Rovnátka">
+			<input type="text" ng-model="commision.code" placeholder="12312">
+			<input type="text" ng-model="commision.note" placeholder="Poznámka...">
+			<input type="text" ng-model="commision.laboratory" placeholder="Labák">
+			<input type="text" ng-model="commision.date">
+		</span>
+		<button ng-click="toggleEdit(commision)" ng-hide="commision.edit">Edit</button>
+		<button ng-click="editObject(commision)" ng-show="commision.edit">Done</button>
+		<button ng-click="deleteObject(commision)">Delete</button>
+	</li>
+</ul>
+<button ng-click="newObject()">New commission</button>

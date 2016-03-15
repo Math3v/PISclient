@@ -4,6 +4,7 @@
 angular.module('myApp', [
   'ngRoute',
   'myApp.users',
+  'myApp.commisions',
   'myApp.services',
   'myApp.directives'
  ]).
