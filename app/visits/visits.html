@@ -1,0 +1,16 @@
+<h1>Visits</h1>
+<ul>
+	<li ng-repeat="visit in users">
+		<span ng-hide="visit.edit">
+			{{visit.date}}, {{visit.time}}
+		</span>
+		<span ng-show="visit.edit">
+			<input type="text" ng-model="visit.date">
+			<input type="text" ng-model="visit.time">
+		</span>
+		<button ng-click="toggleEdit(visit)" ng-hide="visit.edit">Edit</button>
+		<button ng-click="editObject(visit)" ng-show="visit.edit">Done</button>
+		<button ng-click="deleteObject(visit)">Delete</button>
+	</li>
+</ul>
+<button ng-click="newObject()">New commission</button>

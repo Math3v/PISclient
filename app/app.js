@@ -6,6 +6,7 @@ angular.module('myApp', [
   'myApp.users',
   'myApp.commisions',
   'myApp.examinations',
+  'myApp.visits',
   'myApp.services',
   'myApp.directives',
   'myApp.crudModule'
