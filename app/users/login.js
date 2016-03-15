@@ -9,7 +9,7 @@ angular.module('myApp.login', ['ngRoute'])
 	});
 }])
 
-.controller('loginController', ['$scope', '$http', 'apiUrl', function($scope, $http, apiUrl){
+.controller('loginController', ['$scope', '$http', 'apiUrl', 'currentUserService', function($scope, $http, apiUrl, currentUserService){
 	$scope.login = function() {
 		console.log( $scope.username );
 		console.log( $scope.password );
@@ -19,6 +19,7 @@ angular.module('myApp.login', ['ngRoute'])
 			url: apiUrl+'/APIUsers/findOne',
 			params: {filter:{"where":{"name": $scope.username }}}
 		}).then(function(response) {
+			currentUserService.setUser(response.data);
 			console.log(response);
 		}, function(response) {
 			console.log(response);
