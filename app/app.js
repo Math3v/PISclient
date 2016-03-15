@@ -6,7 +6,8 @@ angular.module('myApp', [
   'myApp.users',
   'myApp.commisions',
   'myApp.services',
-  'myApp.directives'
+  'myApp.directives',
+  'myApp.crudModule'
  ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/patients'});
