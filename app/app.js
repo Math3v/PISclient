@@ -5,6 +5,7 @@ angular.module('myApp', [
   'ngRoute',
   'myApp.users',
   'myApp.commisions',
+  'myApp.examinations',
   'myApp.services',
   'myApp.directives',
   'myApp.crudModule'
