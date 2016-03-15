@@ -1,0 +1,10 @@
+<h1>Patients</h1>
+<ul>
+	<li ng-repeat="user in users | filter: {role: 'patient'}">
+		<user user="user" 
+			toggle-edit="toggleEdit(user)"
+			edit-object="editObject(user)"
+			delete-object="deleteObject(user)"></user>
+	</li>
+	<button ng-click="newObject('patient')">New patient</button>
+</ul>
