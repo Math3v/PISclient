@@ -4,6 +4,7 @@
 angular.module('myApp', [
   'ngRoute',
   'myApp.users',
+  'myApp.login',
   'myApp.commisions',
   'myApp.examinations',
   'myApp.visits',
@@ -12,6 +13,6 @@ angular.module('myApp', [
   'myApp.crudModule'
  ]).
 config(['$routeProvider', function($routeProvider) {
-  $routeProvider.otherwise({redirectTo: '/patients'});
+  $routeProvider.otherwise({redirectTo: '/login'});
 }]).
 constant('apiUrl', 'http://localhost:3000/api');
