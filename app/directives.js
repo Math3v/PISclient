@@ -20,11 +20,16 @@ angular.module('myApp.directives', [])
 	return {
 		restrict: 'A',
 		link: function($scope, iElm, iAttrs, controller) {
-			if( permissionService.canAccess( iAttrs.access ) === true ) {
-				iElm.removeClass('hidden');
-			} else {
-				iElm.addClass('hidden');
+			var toggleVisibility = function() {
+				if( permissionService.canAccess( iAttrs.access ) === true ) {
+					iElm.removeClass('hidden');
+				} else {
+					iElm.addClass('hidden');
+				}
 			}
+
+			toggleVisibility();
+			$scope.$on('permissionsChanged', toggleVisibility);
 		}
 	};
 }]);

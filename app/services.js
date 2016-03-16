@@ -2,19 +2,31 @@
 
 angular.module('myApp.services', [])
 
-.factory('currentUserService', [function(){
-	var currentUser = {};
+.factory('currentUserService', ['$cookies', '$rootScope', function($cookies, $rootScope){
+	var currentUser = undefined;
 
 	function setUser(user) {
 		currentUser = user;
+		$cookies.putObject('currentUser', user);
+		$rootScope.$broadcast( 'permissionsChanged' );
 	}
 
 	function getUser() {
+		if( !!currentUser !== false ) {
+			return currentUser;
+		}
+		try {
+			currentUser = $cookies.getObject('currentUser');
+		} catch( err ) {
+			currentUser = undefined;
+		}
 		return currentUser;
 	}
 
 	function delUser() {
-		currentUser = {};
+		currentUser = undefined;
+		$cookies.remove('currentUser');
+		$rootScope.$broadcast( 'permissionsChanged' );
 	}
 
 	return {
@@ -25,10 +37,13 @@ angular.module('myApp.services', [])
 }])
 
 .factory('permissionService', ['currentUserService', function(currentUserService){
-	
-	var currentUser = currentUserService.getUser();
 
 	function canAccess( action ) {
+		var currentUser = currentUserService.getUser();
+		if( !!currentUser === false || currentUser.hasOwnProperty('role') === false ) {
+			return false;
+		}
+		console.log( "Can access", action, currentUser);
 		if( currentUser.role === 'admin') {
 			return true;
 		} else if( currentUser.role === 'patient' ) {

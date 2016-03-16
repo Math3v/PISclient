@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="app.css">
   <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
-<body>
+<body ng-controller="indexController">
   <header>
     <h1>Header</h1>
     <ul class="menu">
@@ -25,7 +25,8 @@
       <li access="show-examination"><a href="#/examinations">examinations</a></li>
       <li access="show-visit"><a href="#/visits">visits</a></li>
       <li><a href="#/login">Log In</a></li>
-      <li><a href="#/logout">Log Out</a></li>
+      <li><a href="#/logout" ng-click="logout()">Log Out</a></li>
+      <li>{{ currentUser }}</li>
     </ul>
   </header>
 
@@ -44,6 +45,7 @@
   -->
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
   <script src="app.js"></script>
   <script src="crud_module.js"></script>
   <script src="users/users.js"></script>

@@ -3,6 +3,7 @@
 // Declare app level module which depends on views, and components
 angular.module('myApp', [
   'ngRoute',
+  'ngCookies',
   'myApp.users',
   'myApp.login',
   'myApp.commisions',
@@ -21,8 +22,7 @@ angular.module('myApp', [
 
 .run(['$rootScope', 'currentUserService', '$location', function($rootScope, currentUserService, $location){
 	$rootScope.$on('$routeChangeStart', function(evnt, next) {
-		console.log( evnt );
-		console.log( next );
+		console.log( "Next ", next );
 
     if( next.hasOwnProperty('$$route')
         && next.$$route.hasOwnProperty('access')
@@ -42,4 +42,15 @@ angular.module('myApp', [
     }
 
 	})
+}])
+
+.controller('indexController', ['currentUserService', '$scope', '$location', function(currentUserService, $scope, $location){
+  
+  $scope.currentUser = currentUserService.getUser();
+
+  $scope.logout = function() {
+    currentUserService.delUser();
+    console.log( "Change to login" );
+    $location.path( '/login' );
+  }
 }]);
