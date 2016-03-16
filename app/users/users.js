@@ -8,6 +8,9 @@ angular.module('myApp.users', ['ngRoute'])
     controller: 'crudController',
     resolve: {
     	url: function(){ return '/APIUsers'; }
+    },
+    access: {
+      requiredRoles: ['admin', 'doctor']
     }
   });
   $routeProvider.when('/doctors', {
@@ -15,6 +18,9 @@ angular.module('myApp.users', ['ngRoute'])
     controller: 'crudController',
     resolve: {
     	url: function(){ return '/APIUsers'; }
+    },
+    access: {
+      requiredRoles: ['admin']
     }
   });
   $routeProvider.when('/admins', {
@@ -22,6 +28,9 @@ angular.module('myApp.users', ['ngRoute'])
     controller: 'crudController',
     resolve: {
     	url: function(){ return '/APIUsers'; }
+    },
+    access: {
+      requiredRoles: ['admin']
     }
   });
 }]);

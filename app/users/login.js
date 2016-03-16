@@ -9,6 +9,12 @@ angular.module('myApp.login', ['ngRoute'])
 	});
 }])
 
+.config(['$routeProvider', function($routeProvider) {
+	$routeProvider.when('/404', {
+		templateUrl: '404.html'
+	})
+}])
+
 .controller('loginController', ['$scope', '$http', 'apiUrl', 'currentUserService', function($scope, $http, apiUrl, currentUserService){
 	$scope.login = function() {
 		console.log( $scope.username );
