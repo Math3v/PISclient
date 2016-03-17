@@ -48,27 +48,33 @@ angular.module('myApp.services', [])
 			return true;
 		} else if( currentUser.role === 'patient' ) {
 			switch( action ) {
-				case 'add-visit': return true;
-				case 'show-visit': return true;
-				default: return false;
+				case 'add-visit':
+				case 'show-visit':
+					return true;
+				default:
+					return false;
 			}
 		} else if( currentUser.role === 'doctor' ) {
 			switch( action ) {
-				case 'edit-visit': return true;
-				case 'show-visit': return true;
-				case 'add-commission': return true;
-				case 'edit-commission': return true;
-				case 'show-commission': return true;
-				case 'add-examination': return true;
-				case 'edit-examination': return true;
-				case 'show-examination': return true;
-				case 'add-patient': return true;
-				case 'edit-patient': return true;
-				case 'delete-patient': return true;
-				case 'show-patient': return true;
-				case 'edit-doctor': return true;
-				case 'show-doctor': return true;
-				default: return false;
+				case 'edit-visit':
+				case 'show-visit':
+				case 'add-commission':
+				case 'edit-commission':
+				case 'show-commission':
+				case 'add-examination':
+				case 'edit-examination':
+				case 'show-examination':
+				case 'add-patient':
+				case 'edit-patient':
+				case 'delete-patient':
+				case 'show-patient':
+				case 'edit-doctor':
+				case 'show-doctor':
+					console.log( "Access doctor ", true);
+					return true;
+				default:
+					console.log( "Access doctor ", false);
+					return false;
 			}
 		} else {
 			return false;

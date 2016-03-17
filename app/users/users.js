@@ -7,7 +7,8 @@ angular.module('myApp.users', ['ngRoute'])
     templateUrl: 'users/patients.html',
     controller: 'crudController',
     resolve: {
-    	url: function(){ return '/APIUsers'; }
+    	url: function(){ return '/APIUsers'; },
+      obj: function(){ return 'patient'; }
     },
     access: {
       requiredRoles: ['admin', 'doctor']
@@ -17,17 +18,19 @@ angular.module('myApp.users', ['ngRoute'])
     templateUrl: 'users/doctors.html',
     controller: 'crudController',
     resolve: {
-    	url: function(){ return '/APIUsers'; }
+    	url: function(){ return '/APIUsers'; },
+      obj: function(){ return 'doctor'; }
     },
     access: {
-      requiredRoles: ['admin']
+      requiredRoles: ['admin', 'doctor']
     }
   });
   $routeProvider.when('/admins', {
     templateUrl: 'users/admins.html',
     controller: 'crudController',
     resolve: {
-    	url: function(){ return '/APIUsers'; }
+    	url: function(){ return '/APIUsers'; },
+      obj: function(){ return 'admin'; }
     },
     access: {
       requiredRoles: ['admin']

@@ -7,7 +7,8 @@ angular.module('myApp.visits', [])
 		templateUrl: 'visits/visits.html',
 		controller: 'crudController',
 		resolve: {
-			url: function(){ return '/Visits'; }
+			url: function(){ return '/Visits'; },
+			obj: function(){ return 'visit'; }
 		}
 	});
 }])

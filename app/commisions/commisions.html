@@ -12,9 +12,9 @@
 			<input type="text" ng-model="commision.laboratory" placeholder="Labák">
 			<input type="text" ng-model="commision.date">
 		</span>
-		<button ng-click="toggleEdit(commision)" ng-hide="commision.edit">Edit</button>
-		<button ng-click="editObject(commision)" ng-show="commision.edit">Done</button>
-		<button ng-click="deleteObject(commision)">Delete</button>
+		<button access="{{'edit-'+obj}}" ng-click="toggleEdit(commision)" ng-hide="commision.edit">Edit</button>
+		<button access="{{'edit-'+obj}}" ng-click="editObject(commision)" ng-show="commision.edit">Done</button>
+		<button access="{{'delete-'+obj}}" ng-click="deleteObject(commision)">Delete</button>
 	</li>
 </ul>
-<button ng-click="newObject()">New commission</button>
+<button access="{{'add-'+obj}}" ng-click="newObject()">New commission</button>

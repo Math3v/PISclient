@@ -2,7 +2,9 @@
 
 angular.module('myApp.crudModule', [])
 
-.controller('crudController', ['$http', 'apiUrl', '$scope', 'url', function($http, apiUrl, $scope, url) {
+.controller('crudController', ['$http', 'apiUrl', '$scope', 'url', 'obj', function($http, apiUrl, $scope, url, obj) {
+
+	$scope.obj = obj;
 
 	$scope.loadObjects = function() {
 		$http({

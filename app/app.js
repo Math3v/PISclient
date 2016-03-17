@@ -46,6 +46,10 @@ angular.module('myApp', [
 
 .controller('indexController', ['currentUserService', '$scope', '$location', function(currentUserService, $scope, $location){
   
+  $scope.$on('permissionsChanged', function() {
+    $scope.currentUser = currentUserService.getUser();
+  });
+
   $scope.currentUser = currentUserService.getUser();
 
   $scope.logout = function() {

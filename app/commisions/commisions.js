@@ -7,7 +7,8 @@ angular.module('myApp.commisions', [])
 		templateUrl: 'commisions/commisions.html',
 		controller: 'crudController',
 		resolve: {
-			url: function(){ return '/Commissions'; }
+			url: function(){ return '/Commissions'; },
+			obj: function(){ return 'commission'; }
 		}
 	});
 }])

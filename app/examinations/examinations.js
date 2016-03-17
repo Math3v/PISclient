@@ -7,7 +7,8 @@ angular.module('myApp.examinations', [])
 		templateUrl: 'examinations/examinations.html',
 		controller: 'crudController',
 		resolve: {
-			url: function(){ return '/Examinations';}
+			url: function(){ return '/Examinations'; },
+			obj: function(){ return 'examination'; }
 		}
 	});
 }])

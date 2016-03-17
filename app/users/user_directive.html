@@ -7,6 +7,6 @@
 	<input type="text" ng-model="user.pin" placeholder="123123/1212">
 	<input type="text" ng-model="user.address" placeholder="New York">
 </span>
-<button ng-click="toggleEdit(user)" ng-hide="user.edit">Edit</button>
-<button ng-click="editObject(user)" ng-show="user.edit">Done</button>
-<button ng-click="deleteObject(user)">Delete</button>
+<button access="{{'edit-'+obj}}" ng-click="toggleEdit(user)" ng-hide="user.edit">Edit</button>
+<button access="{{'edit-'+obj}}" ng-click="editObject(user)" ng-show="user.edit">Done</button>
+<button access="{{'delete-'+obj}}" ng-click="deleteObject(user)">Delete</button>

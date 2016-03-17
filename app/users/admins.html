@@ -2,9 +2,10 @@
 <ul>
 	<li ng-repeat="user in users | filter: {role: 'admin'}">
 		<user user="user" 
+			obj="obj"
 			toggle-edit="toggleEdit(user)"
 			edit-object="editObject(user)"
 			delete-object="deleteObject(user)"></user>
 	</li>
-	<button ng-click="newObject('admin')">New admin</button>
+	<button access="{{'add-'+obj}}" ng-click="newObject('admin')">New admin</button>
 </ul>
