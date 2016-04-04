@@ -16,7 +16,7 @@ angular.module('myApp', [
  ])
 
 .config(['$routeProvider', function($routeProvider) {
-  $routeProvider.otherwise({redirectTo: '/404'});
+  $routeProvider.otherwise({redirectTo: '/login'});
 }])
 
 .constant('apiUrl', 'http://localhost:3000/api')
