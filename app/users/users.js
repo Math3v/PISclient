@@ -8,7 +8,8 @@ angular.module('myApp.users', ['ngRoute'])
     controller: 'crudController',
     resolve: {
     	url: function(){ return '/APIUsers'; },
-      obj: function(){ return 'patient'; }
+      obj: function(){ return 'patient'; },
+      currentUser: function(currentUserService){ return currentUserService.getUser(); }
     },
     access: {
       requiredRoles: ['admin', 'doctor']
@@ -19,7 +20,8 @@ angular.module('myApp.users', ['ngRoute'])
     controller: 'crudController',
     resolve: {
     	url: function(){ return '/APIUsers'; },
-      obj: function(){ return 'doctor'; }
+      obj: function(){ return 'doctor'; },
+      currentUser: function(currentUserService){ return currentUserService.getUser(); }
     },
     access: {
       requiredRoles: ['admin', 'doctor']
@@ -30,7 +32,8 @@ angular.module('myApp.users', ['ngRoute'])
     controller: 'crudController',
     resolve: {
     	url: function(){ return '/APIUsers'; },
-      obj: function(){ return 'admin'; }
+      obj: function(){ return 'admin'; },
+      currentUser: function(currentUserService){ return currentUserService.getUser(); }
     },
     access: {
       requiredRoles: ['admin']

@@ -8,7 +8,8 @@ angular.module('myApp.commisions', [])
 		controller: 'crudController',
 		resolve: {
 			url: function(){ return '/Commissions'; },
-			obj: function(){ return 'commission'; }
+			obj: function(){ return 'commission'; },
+			currentUser: function(currentUserService){ return currentUserService.getUser(); }
 		}
 	});
 }])

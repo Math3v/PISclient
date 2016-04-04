@@ -8,7 +8,22 @@ angular.module('myApp.examinations', [])
 		controller: 'crudController',
 		resolve: {
 			url: function(){ return '/Examinations'; },
-			obj: function(){ return 'examination'; }
+			obj: function(){ return 'examination'; },
+			currentUser: function(currentUserService){ return currentUserService.getUser(); }
 		}
 	});
+}])
+
+.controller('examinationsController', ['crudUserService', '$scope', function(crudUserService, $scope){
+	$scope.userNames = [];
+	crudUserService.all().then(
+		function(data) {
+			for( var i = 0; i < data.length; i++ ) {
+				$scope.userNames[i+1] = data[i].name;
+			}
+		},
+		function(err) {
+			console.log("Cannot load users");
+		}
+	);
 }])

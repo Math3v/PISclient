@@ -1,18 +1,24 @@
 <h1>Examinations</h1>
 <ul>
-	<li ng-repeat="examination in users">
+	<li ng-repeat="examination in users | filter:{doctor_id: currentUser.id}">
 		<span ng-hide="examination.edit">
 			{{examination.description}}, {{examination.recipe}}, 
-			{{examination.date}}
+			{{examination.date}},
+			<span ng-controller="examinationsController">
+				{{userNames[examination.patient_id]}}
+			</span>
 		</span>
 		<span ng-show="examination.edit">
 			<input type="text" ng-model="examination.description" placeholder="Bolesti hlavy">
 			<input type="text" ng-model="examination.recipe" placeholder="Ibalgin">
 			<input type="text" ng-model="examination.date">
+			<select name="patient" ng-model="examination.patient_id">
+				<option ng-repeat="user in allUsers | filter:{role: 'patient'}" ng-selected="examination.patient_id == user.id ? true : false" value="user.id">{{user.name}}</option>
+			</select>
 		</span>
 		<button access="{{'edit-'+obj}}" ng-click="toggleEdit(examination)" ng-hide="examination.edit">Edit</button>
 		<button access="{{'edit-'+obj}}" ng-click="editObject(examination)" ng-show="examination.edit">Done</button>
 		<button access="{{'delete-'+obj}}" ng-click="deleteObject(examination)">Delete</button>
 	</li>
 </ul>
-<button access="{{'add-'+obj}}" ng-click="newObject()">New examination</button>
+<button access="{{'add-'+obj}}" ng-click="newObject({doctor_id: currentUser.id})">New examination</button>
