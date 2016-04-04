@@ -84,4 +84,26 @@ angular.module('myApp.services', [])
 	return {
 		canAccess: canAccess
 	};
+}])
+
+.factory('crudUserService', ['$http', '$q', 'apiUrl', function($http, $q, apiUrl){
+	
+	function all() {
+		var deferred = $q.defer();
+		$http({
+			method: 'GET',
+			url: apiUrl+'/ApiUsers'
+		}).then(function(response) {
+			console.log( "All users ", response.data );
+			deferred.resolve( response.data );
+		}, function(err) {
+			console.log( err );
+			deferred.reject( err );
+		});
+		return deferred.promise;
+	}
+
+	return {
+		all: all
+	};
 }]);

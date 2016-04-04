@@ -7,5 +7,5 @@
 			edit-object="editObject(user)"
 			delete-object="deleteObject(user)"></user>
 	</li>
-	<button access="{{'add-'+obj}}" ng-click="newObject('patient')">New patient</button>
+	<button access="{{'add-'+obj}}" ng-click="newObject({role: 'patient'})">New patient</button>
 </ul>

@@ -8,7 +8,8 @@ angular.module('myApp.visits', [])
 		controller: 'crudController',
 		resolve: {
 			url: function(){ return '/Visits'; },
-			obj: function(){ return 'visit'; }
+			obj: function(){ return 'visit'; },
+			currentUser: function(currentUserService){ return currentUserService.getUser(); }
 		}
 	});
 }])

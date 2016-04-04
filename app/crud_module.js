@@ -2,9 +2,10 @@
 
 angular.module('myApp.crudModule', [])
 
-.controller('crudController', ['$http', 'apiUrl', '$scope', 'url', 'obj', function($http, apiUrl, $scope, url, obj) {
+.controller('crudController', ['$http', 'apiUrl', '$scope', 'url', 'obj', 'crudUserService', 'currentUser', function($http, apiUrl, $scope, url, obj, crudUserService, currentUser) {
 
 	$scope.obj = obj;
+	$scope.currentUser = currentUser;
 
 	$scope.loadObjects = function() {
 		$http({
@@ -26,12 +27,10 @@ angular.module('myApp.crudModule', [])
 		}
 	}
 
-	$scope.newObject = function(role) {
-		$scope.users.push({
-			role: role, 
-			edit: true, 
-			_new: true
-		});
+	$scope.newObject = function(obj) {
+		obj.edit = true;
+		obj._new = true;
+		$scope.users.push( obj );
 	}
 
 	$scope.editObject = function(object) {
@@ -70,4 +69,12 @@ angular.module('myApp.crudModule', [])
 	}
 
 	$scope.loadObjects();
+	crudUserService.all().then(
+		function(users) {
+			$scope.allUsers = users;
+		},
+		function(err) {
+			$scope.allUsers = [];
+		}
+	);
 }]);

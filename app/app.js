@@ -11,7 +11,8 @@ angular.module('myApp', [
   'myApp.visits',
   'myApp.services',
   'myApp.directives',
-  'myApp.crudModule'
+  'myApp.crudModule',
+  'myApp.filters'
  ])
 
 .config(['$routeProvider', function($routeProvider) {
