@@ -12,22 +12,48 @@
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
   <link rel="stylesheet" href="app.css">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <!-- Latest compiled JavaScript -->
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body ng-controller="indexController">
   <header>
-    <h1>Header</h1>
-    <ul class="menu">
-      <li access="show-patient"><a href="#/patients">patients</a></li>
-      <li access="show-doctor"><a href="#/doctors">doctors</a></li>
-      <li access="show-admin"><a href="#/admins">admins</a></li>
-      <li access="show-commission"><a href="#/commissions">commissions</a></li>
-      <li access="show-examination"><a href="#/examinations">examinations</a></li>
-      <li access="show-visit"><a href="#/visits">visits</a></li>
-      <li><a href="#/login">Log In</a></li>
-      <li><a href="#/logout" ng-click="logout()">Log Out</a></li>
-      <li>Logged as: {{ currentUser.name }}-{{ currentUser.role }}</li>
-    </ul>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Brand</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <!--<li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>-->
+            <li access="show-patient"><a href="#/patients">Patients</a></li>
+            <li access="show-doctor"><a href="#/doctors">Doctors</a></li>
+            <li access="show-admin"><a href="#/admins">Admins</a></li>
+            <li access="show-commission"><a href="#/commissions">Commissions</a></li>
+            <li access="show-examination"><a href="#/examinations">Examinations</a></li>
+            <li access="show-visit"><a href="#/visits">Visits</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><p class="navbar-text">Logged as: {{ currentUser.name }}-{{ currentUser.role }}</p></li>
+            <li><button type="button" class="btn btn-default navbar-btn"><a href="#/logout" ng-click="logout()">Log Out</a></button></li>
+            <li><button type="button" class="btn btn-default navbar-btn"><a href="#/login">Log In</a></button></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
   </header>
 
   <!--[if lt IE 7]>
