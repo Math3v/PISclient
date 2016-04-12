@@ -1,20 +1,60 @@
 <h1>Commisions</h1>
-<ul>
-	<li ng-repeat="commision in users">
-		<span ng-hide="commision.edit">
-			{{commision.name}}, {{commision.code}}, {{commision.note}}, 
-			{{commision.laboratory}}, {{commision.date}}, {{APIuserId}}
-		</span>
-		<span ng-show="commision.edit">
-			<input type="text" ng-model="commision.name" placeholder="Rovnátka">
-			<input type="text" ng-model="commision.code" placeholder="12312">
-			<input type="text" ng-model="commision.note" placeholder="Poznámka...">
-			<input type="text" ng-model="commision.laboratory" placeholder="Labák">
-			<input type="text" ng-model="commision.date">
-		</span>
-		<button access="{{'edit-'+obj}}" ng-click="toggleEdit(commision)" ng-hide="commision.edit">Edit</button>
-		<button access="{{'edit-'+obj}}" ng-click="editObject(commision)" ng-show="commision.edit">Done</button>
-		<button access="{{'delete-'+obj}}" ng-click="deleteObject(commision)">Delete</button>
-	</li>
-</ul>
-<button access="{{'add-'+obj}}" ng-click="newObject()">New commission</button>
+<div class="table-responsive">
+  <table class="table table-striped">
+    <tr>
+      <th>
+        Name
+      </th>
+      <th>
+        Code
+      </th>
+      <th>
+        Note
+      </th>
+      <th>
+        Laboratory
+      </th>
+      <th>
+        Date
+      </th>
+      <th>
+      </th>
+      <th>
+      </th>
+    </tr>
+    <tr ng-repeat="commision in users">
+      <td>
+        {{commision.name}}
+      </td>
+      <td>
+        {{commision.code}}
+      </td>
+      <td>
+        {{commision.note}}
+      </td>
+      <td>
+        {{commision.laboratory}}
+      </td>
+      <td>
+        {{commision.date}}
+      </td>
+      <!--<span ng-show="commision.edit">
+          <input type="text" ng-model="commision.name" placeholder="Rovnátka">
+          <input type="text" ng-model="commision.code" placeholder="12312">
+          <input type="text" ng-model="commision.note" placeholder="Poznámka...">
+          <input type="text" ng-model="commision.laboratory" placeholder="Labák">
+          <input type="text" ng-model="commision.date">
+      </span>-->
+      <td>
+        <button class="btn btn-primary btn-sm" access="{{'edit-'+obj}}" ng-click="toggleEdit(commision)">Edit</button>
+      </td>
+      <td>
+        <button class="btn btn-danger btn-sm" access="{{'delete-'+obj}}" ng-click="deleteObject(commision)">Delete</button>
+      </td>
+      <!--<td>
+        <button access="{{'edit-'+obj}}" ng-click="editObject(commision)">Done</button>
+      </td>-->
+    </tr>
+  </table>
+</div>
+<button class="btn btn-success" access="{{'add-'+obj}}" ng-click="newObject()">New commission</button>
