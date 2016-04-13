@@ -1,60 +1,100 @@
-<h1>Commisions</h1>
-<div class="table-responsive">
-  <table class="table table-striped">
-    <tr>
-      <th>
-        Name
-      </th>
-      <th>
-        Code
-      </th>
-      <th>
-        Note
-      </th>
-      <th>
-        Laboratory
-      </th>
-      <th>
-        Date
-      </th>
-      <th>
-      </th>
-      <th>
-      </th>
-    </tr>
-    <tr ng-repeat="commision in users">
-      <td>
-        {{commision.name}}
-      </td>
-      <td>
-        {{commision.code}}
-      </td>
-      <td>
-        {{commision.note}}
-      </td>
-      <td>
-        {{commision.laboratory}}
-      </td>
-      <td>
-        {{commision.date}}
-      </td>
-      <!--<span ng-show="commision.edit">
-          <input type="text" ng-model="commision.name" placeholder="Rovnátka">
-          <input type="text" ng-model="commision.code" placeholder="12312">
-          <input type="text" ng-model="commision.note" placeholder="Poznámka...">
-          <input type="text" ng-model="commision.laboratory" placeholder="Labák">
-          <input type="text" ng-model="commision.date">
-      </span>-->
-      <td>
-        <button class="btn btn-primary btn-sm" access="{{'edit-'+obj}}" ng-click="toggleEdit(commision)">Edit</button>
-      </td>
-      <td>
-        <button class="btn btn-danger btn-sm" access="{{'delete-'+obj}}" ng-click="deleteObject(commision)">Delete</button>
-      </td>
-      <!--<td>
-        <button access="{{'edit-'+obj}}" ng-click="editObject(commision)">Done</button>
-      </td>-->
-    </tr>
-  </table>
+<div class="container-fluid">
+  <h1>Commisions</h1>
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <tr>
+        <th class="col-md-2">
+          Name
+        </th >
+        <th class="col-md-2">
+          Code
+        </th>
+        <th class="col-md-2">
+          Note
+        </th>
+        <th class="col-md-2">
+          Laboratory
+        </th>
+        <th class="col-md-2">
+          Date
+        </th>
+        <th>
+        </th>
+        <th>
+        </th>
+      </tr>
+      <tr ng-repeat="commision in users">
+        <td class="col-md-2">
+          {{commision.name}}
+        </td>
+        <td class="col-md-2">
+          {{commision.code}}
+        </td>
+        <td class="col-md-2">
+          {{commision.note}}
+        </td>
+        <td class="col-md-2">
+          {{commision.laboratory}}
+        </td>
+        <td class="col-md-2">
+          {{commision.date}}
+        </td>
+        <td>
+          <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editCommission" access="{{'edit-'+obj}}" ng-click="toggleEdit(commision)">Edit</button>
+        </td>
+        <td>
+          <button class="btn btn-danger btn-sm" access="{{'delete-'+obj}}" ng-click="deleteObject(commision)">Delete</button>
+        </td>
+        <!--<td>
+          <button access="{{'edit-'+obj}}" ng-click="editObject(commision)">Done</button>
+        </td>-->
+      </tr>
+    </table>
+  </div>
+  <button class="btn btn-success" aria-label="New commission" access="{{'add-'+obj}}" ng-click="newObject()">
+    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>   New Commission
+  </button>
+  
+  <!-- Modal windows section -->
+  
+  <!-- Commission edit -->
+  <div class="modal fade" id="editCommission" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Edit Commission</h4>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" class="form-control" id="name" placeholder="Name" ng-model="commision.name">
+            </div>
+            <div class="form-group">
+              <label for="code">Code</label>
+              <input type="text" class="form-control" id="code" placeholder="Code" ng-model="commision.code">
+            </div>
+            <div class="form-group">
+              <label for="note">Note</label>
+              <input type="text" class="form-control" id="note" placeholder="Note" ng-model="commision.note">
+            </div>
+            <div class="form-group">
+              <label for="laboratory">Laboratory</label>
+              <input type="text" class="form-control" id="laboratory" placeholder="Laboratory" ng-model="commision.laboratory">
+            </div>
+            <div class="form-group date">
+              <label for="date">Date</label>
+              <input type="text" data-provide="datepicker" class="form-control" id="date" placeholder="Date" ng-model="commision.date">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
 </div>
-<button class="btn btn-success" access="{{'add-'+obj}}" ng-click="newObject()">New commission</button>
