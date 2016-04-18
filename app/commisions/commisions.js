@@ -13,3 +13,10 @@ angular.module('myApp.commisions', [])
 		}
 	});
 }])
+
+.controller('commissionsController', ['$scope', function($scope){
+	$scope.showEditModal = function(commision) {
+		$scope.commision = commision;
+		$( "#editCommission" ).modal('show');
+	}	
+}])

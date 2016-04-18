@@ -1,6 +1,6 @@
-<div class="container-fluid">
+<div class="container-fluid" ng-controller="commissionsController">
   <div class="panel panel-default">
-    <div class="panel-heading"><h4>Examinations<h4></div>
+    <div class="panel-heading"><h4>Examinations</h4></div>
     <div class="table-responsive">
       <table class="table table-striped">
         <tr>
@@ -41,7 +41,7 @@
             {{commision.date}}
           </td>
           <td>
-            <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#editCommission" access="{{'edit-'+obj}}">Edit</button>
+            <button class="btn btn-default btn-sm" ng-click="showEditModal(commision)" access="{{'edit-'+obj}}">Edit</button>
           </td>
           <td>
             <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteCommission" access="{{'delete-'+obj}}">Delete</button>
