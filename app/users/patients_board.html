@@ -1,0 +1,128 @@
+<div class="container-fluid" ng-controller="commissionsController">
+  <div class="panel panel-default">
+    <div class="panel-heading"><h4>Osobní údaje</h4></div>
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <tr>
+          <td class="col-md-1">
+            Jméno
+          </td>
+          <td class="col-md-1">
+            <!--Data Placeholder-->
+          </td>
+        </tr>
+        <tr>
+          <td class="col-md-1">
+            Rodné číslo
+          </td>
+          <td class="col-md-1">
+            <!--Data Placeholder-->
+          </td>
+        </tr>
+        <tr>
+          <td class="col-md-1">
+            Telefon
+          </td>
+          <td class="col-md-1">
+            <!--Data Placeholder-->
+          </td>
+        </tr>
+        <tr>
+          <td class="col-md-1">
+            Adresa
+          </td>
+          <td class="col-md-1">
+            <!--Data Placeholder-->
+          </td>
+        </tr>
+        <tr>
+          <td class="col-md-1">
+            Zdravotní pojištovna
+          </td>
+          <td class="col-md-1">
+            <!--Data Placeholder-->
+          </td>
+        </tr>
+        <tr>
+          <td class="col-md-1">
+            Číslo pojištěnce
+          </td>
+          <td class="col-md-1">
+            <!--Data Placeholder-->
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="pull-left">Vyšetření</h4>
+      <button class="btn btn-success pull-right">Vytvořit nové vyšetření</button>
+      <div class="clearfix"></div>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-striped" ng-repeat="examination in users | filter:{doctor_id: currentUser.id}"><!-- This have to be done just for actual patient -->
+        <tr>
+          <td class="col-md-1">
+            {{examination.date}}
+          </td>
+          <td class="col-md-3">
+            {{examination.description}}
+          </td>
+          <td>
+            <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#" access="{{'edit-'+obj}}" ng-click="toggleEdit(examination)" ng-hide="examination.edit">Zobrazit detail</button>
+          </td>
+        </tr>
+        <tr ng-repeat=""><!-- This have to be done for all ACTS on this examination -->
+          <td class="col-md-1">
+          </td>
+          <td class="col-md-3">
+            {{act.note}}
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="pull-left">Externí zakázky</h4>
+      <button class="btn btn-success pull-right">Vytvořit novou zakázku</button>
+      <div class="clearfix"></div>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <tr>
+          <th class="col-md-2">
+            Date
+          </th>
+          <th class="col-md-2">
+            Name
+          </th >
+          <th class="col-md-2">
+            Note
+          </th>
+          <th class="col-md-2">
+            Laboratory
+          </th>
+        </tr>
+        <tr ng-repeat="commision in users">
+          <td class="col-md-2">
+            {{commision.date}}
+          </td>
+          <td class="col-md-2">
+            {{commision.name}}
+          </td>
+          <td class="col-md-2">
+            {{commision.note}}
+          </td>
+          <td class="col-md-2">
+            {{commision.laboratory}}
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  
+</div>
