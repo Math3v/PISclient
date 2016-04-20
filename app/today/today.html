@@ -1,0 +1,41 @@
+<div class="container-fluid">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4>Today visits</h4>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <tr>
+          <th class="col-md-2">
+            Date
+          </th >
+          <th class="col-md-2">
+            Time
+          </th>
+          <th class="col-md-2">
+            Status
+          </th>
+          <th class="col-md-2">
+            User
+          </th>
+        </tr>
+        <tr ng-repeat="visit in visits | filter:{date: today}">
+          <td class="col-md-2">
+            {{visit.date}}
+          </td>
+          <td class="col-md-2">
+            {{visit.time}}
+          </td>
+          <td class="col-md-2">
+            {{visit.status}}
+          </td>
+          <td class="col-md-2">
+            <a href="/app/?#/patient/{{visit.patient_id}}">
+              {{users[visit.patient_id].name}}
+            </a>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

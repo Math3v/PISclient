@@ -10,6 +10,7 @@ angular.module('myApp', [
   'myApp.commisions',
   'myApp.examinations',
   'myApp.visits',
+  'myApp.today',
   'myApp.services',
   'myApp.directives',
   'myApp.crudModule',
