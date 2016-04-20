@@ -8,7 +8,7 @@
             Jméno
           </td>
           <td class="col-md-1">
-            {{currentUser.name}}
+            {{user.name}}
           </td>
         </tr>
         <tr>
@@ -16,7 +16,7 @@
             Rodné číslo
           </td>
           <td class="col-md-1">
-            {{currentUser.pin}}
+            {{user.pin}}
           </td>
         </tr>
         <tr>
@@ -24,7 +24,7 @@
             Telefon
           </td>
           <td class="col-md-1">
-            {{currentUser.phone}}
+            {{user.phone}}
           </td>
         </tr>
         <tr>
@@ -32,7 +32,7 @@
             Adresa
           </td>
           <td class="col-md-1">
-            {{currentUser.address}}
+            {{user.address}}
           </td>
         </tr>
         <tr>
@@ -62,7 +62,7 @@
       <div class="clearfix"></div>
     </div>
     <div class="table-responsive">
-      <table class="table table-striped" ng-repeat="examination in users | filter:{doctor_id: currentUser.id}"><!-- This have to be done just for actual patient -->
+      <table class="table table-striped" ng-repeat="examination in examinations | filter:{patient_id: user.id}"><!-- This have to be done just for actual patient -->
         <tr>
           <td class="col-md-1">
             {{examination.date}}
@@ -107,7 +107,7 @@
             Laboratory
           </th>
         </tr>
-        <tr ng-repeat="commision in users">
+        <tr ng-repeat="commision in commissions | showVisitFilter:user">
           <td class="col-md-2">
             {{commision.date}}
           </td>
