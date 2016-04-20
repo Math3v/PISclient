@@ -70,6 +70,7 @@ angular.module('myApp.services', [])
 				case 'show-patient':
 				case 'edit-doctor':
 				case 'show-doctor':
+				case 'show-today':
 					console.log( "Access doctor ", true);
 					return true;
 				default:
