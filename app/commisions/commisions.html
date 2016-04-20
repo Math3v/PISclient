@@ -70,7 +70,7 @@
           <form>
             <div class="form-group">
               <label for="name">Name</label>
-              <input type="text" class="form-control" id="name" placeholder="Name" ng-model="commision.name">
+              <input type="text" class="form-control" id="name" placeholder="Name" ng-model="commision.name" required>
             </div>
             <div class="form-group">
               <label for="code">Code</label>
@@ -110,29 +110,29 @@
           <form>
             <div class="form-group">
               <label for="name">Name</label>
-              <input type="text" class="form-control" id="name" placeholder="Name">
+              <input type="text" ng-model="commission.name" class="form-control" id="name" placeholder="Name">
             </div>
             <div class="form-group">
               <label for="code">Code</label>
-              <input type="text" class="form-control" id="code" placeholder="Code">
+              <input type="text" ng-model="commission.code" class="form-control" id="code" placeholder="Code">
             </div>
             <div class="form-group">
               <label for="note">Note</label>
-              <input type="text" class="form-control" id="note" placeholder="Note">
+              <input type="text" ng-model="commission.note" class="form-control" id="note" placeholder="Note">
             </div>
             <div class="form-group">
               <label for="laboratory">Laboratory</label>
-              <input type="text" class="form-control" id="laboratory" placeholder="Laboratory">
+              <input type="text" ng-model="commission.laboratory" class="form-control" id="laboratory" placeholder="Laboratory">
             </div>
             <div class="form-group date">
               <label for="date">Date</label>
-              <input type="text" data-provide="datepicker" class="form-control" id="date" placeholder="Date">
+              <input type="text" ng-model="commission.date" data-provide="datepicker" class="form-control" id="date" placeholder="Date">
             </div>
           </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" ng-click="newObject()">Add</button>
+          <button type="button" class="btn btn-primary" ng-click="newObject(commission)">Add</button>
         </div>
       </div>
     </div>
