@@ -75,7 +75,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" ng-click="editObject(visit)">Save changes</button>
+          <button type="button" class="btn btn-primary" ng-click="editObject(visit)" data-dismiss="modal">Save changes</button>
         </div>
       </div>
     </div>
@@ -107,7 +107,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" ng-click="newObject({patient_id: currentUser.id, status: 'new'})">Add</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="newObject({patient_id: currentUser.id, status: 'new'})">Add</button>
         </div>
       </div>
     </div>
@@ -123,7 +123,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
-          <button type="button" class="btn btn-primary" ng-click="deleteObject(visit)">Yes</button>
+          <button type="button" class="btn btn-primary" ng-click="deleteObject(visit)" data-dismiss="modal">Yes</button>
         </div>
       </div>
     </div>
