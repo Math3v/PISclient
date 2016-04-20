@@ -14,6 +14,16 @@ angular.module('myApp.users', ['ngRoute'])
     access: {
       requiredRoles: ['admin', 'doctor']
     }
+  })
+  $routeProvider.when('/patient/:id', {
+    templateUrl: 'users/patients_board.html',
+    controller: 'patientsBoardController',
+    resolve: {
+      currentUser: function(currentUserService){ return currentUserService.getUser(); }
+    },
+    access: {
+      requiredRoles: ['admin', 'doctor']
+    }
   });
   $routeProvider.when('/doctors', {
     templateUrl: 'users/doctors.html',
@@ -39,4 +49,10 @@ angular.module('myApp.users', ['ngRoute'])
       requiredRoles: ['admin']
     }
   });
+}])
+
+.controller('patientsBoardController', ['$scope', function($scope){
+  
+  
+
 }]);
