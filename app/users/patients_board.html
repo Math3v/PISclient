@@ -74,12 +74,13 @@
             <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#" access="{{'edit-'+obj}}" ng-click="toggleEdit(examination)" ng-hide="examination.edit">Zobrazit detail</button>
           </td>
         </tr>
-        <tr ng-repeat=""><!-- This have to be done for all ACTS on this examination -->
+        <tr ng-repeat="act in acts | filter:{examination_id: examination.id}"><!-- This have to be done for all ACTS on this examination -->
           <td class="col-md-1">
           </td>
           <td class="col-md-3">
             {{act.note}}
           </td>
+          <td></td>
         </tr>
       </table>
     </div>

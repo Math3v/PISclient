@@ -78,6 +78,15 @@ angular.module('myApp.users', ['ngRoute'])
     $scope.examinations = response.data;
   }, function(response) {
     console.log( "Error: ", response);
-  })
+  });
+
+  $http({
+    method: 'GET',
+    url: apiUrl + '/Acts'
+  }).then(function(response) {
+    $scope.acts = response.data;
+  }, function(response) {
+    console.log( "Error: ", response );
+  });
 
 }]);
