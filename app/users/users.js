@@ -51,8 +51,42 @@ angular.module('myApp.users', ['ngRoute'])
   });
 }])
 
-.controller('patientsBoardController', ['$scope', function($scope){
+.controller('patientsBoardController', ['$scope', '$http', 'apiUrl', '$routeParams', function($scope, $http, apiUrl, $routeParams){
   
-  
+  $http({
+    method: 'GET',
+    url: apiUrl + '/APIUsers/' + $routeParams.id
+  }).then(function(response) {
+    $scope.user = response.data;
+  }, function(response) {
+    console.log( "Error: ", response );
+  })
+
+  $http({
+    method: 'GET',
+    url: apiUrl + '/Commissions'
+  }).then(function(response) {
+    $scope.commissions = response.data;
+  }, function(response) {
+    console.log( "Error: ", response) ;
+  });
+
+  $http({
+    method: 'GET',
+    url: apiUrl + '/Examinations'
+  }).then(function(response) {
+    $scope.examinations = response.data;
+  }, function(response) {
+    console.log( "Error: ", response);
+  });
+
+  $http({
+    method: 'GET',
+    url: apiUrl + '/Acts'
+  }).then(function(response) {
+    $scope.acts = response.data;
+  }, function(response) {
+    console.log( "Error: ", response );
+  });
 
 }]);

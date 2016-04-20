@@ -8,7 +8,7 @@
             Name
           </td>
           <td class="col-md-1">
-            {{currentUser.name}}
+            {{user.name}}
           </td>
         </tr>
         <tr>
@@ -16,7 +16,7 @@
             Personal identification number
           </td>
           <td class="col-md-1">
-            {{currentUser.pin}}
+            {{user.pin}}
           </td>
         </tr>
         <tr>
@@ -24,7 +24,7 @@
             Phone
           </td>
           <td class="col-md-1">
-            {{currentUser.phone}}
+            {{user.phone}}
           </td>
         </tr>
         <tr>
@@ -32,7 +32,7 @@
             Address
           </td>
           <td class="col-md-1">
-            {{currentUser.address}}
+            {{user.address}}
           </td>
         </tr>
       </table>
@@ -48,7 +48,7 @@
       <div class="clearfix"></div>
     </div>
     <div class="table-responsive">
-      <table class="table table-striped" ng-repeat="examination in users | filter:{doctor_id: currentUser.id}"><!-- This have to be done just for actual patient -->
+      <table class="table table-striped" ng-repeat="examination in examinations | filter:{patient_id: user.id}"><!-- This have to be done just for actual patient -->
         <tr>
           <td class="col-md-1">
             {{examination.date}}
@@ -60,12 +60,13 @@
             <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#" access="{{'edit-'+obj}}" ng-click="toggleEdit(examination)" ng-hide="examination.edit">Show detail</button>
           </td>
         </tr>
-        <tr ng-repeat=""><!-- This have to be done for all ACTS on this examination -->
+        <tr ng-repeat="act in acts | filter:{examination_id: examination.id}"><!-- This have to be done for all ACTS on this examination -->
           <td class="col-md-1">
           </td>
           <td class="col-md-3">
             {{act.note}}
           </td>
+          <td></td>
         </tr>
       </table>
     </div>
@@ -95,7 +96,7 @@
             Laboratory
           </th>
         </tr>
-        <tr ng-repeat="commision in users">
+        <tr ng-repeat="commision in commissions | showVisitFilter:user">
           <td class="col-md-2">
             {{commision.date}}
           </td>
