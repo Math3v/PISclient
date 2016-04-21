@@ -68,8 +68,16 @@
             </div>
             <div class="form-group">
               <label for="time">Time</label>
-              <input type="text" class="form-control" id="time" placeholder="Time" ng-model="visit.time" required>
+              <input type="text" class="form-control" id="time" placeholder="hh:mm" ng-model="visit.time" required>
             </div>
+            <div class="form-group">
+              <label for="status">Status</label>
+              <input type="text" class="form-control" id="status" placeholder="Status" ng-model="visit.status" required>
+            </div>
+            <select name="visitPatient" ng-model="visit.patient_id">
+                <option ng-repeat="user in allUsers | filter:{role: 'patient'}" ng-selected="visit.patient_id == user.id ? true : false" value="{{user.id}}">{{user.name}}</option>
+            </select>
+            
           </form>
         </div>
         <div class="modal-footer">
@@ -96,9 +104,13 @@
             </div>
             <div class="form-group">
               <label for="time">Time</label>
-               <input type="text" class="form-control" id="time" placeholder="Time" ng-model="visit.time" required>
+               <input type="text" class="form-control" id="time" placeholder="hh:mm" ng-model="visit.time" required>
             </div>
-            <select name="visitDoctor" ng-model="visit.patient_id">
+            <div class="form-group">
+              <label for="status">Status</label>
+              <input type="text" class="form-control" id="status" placeholder="new" ng-model="visit.status" required>
+            </div>
+            <select name="visitPatient" ng-model="visit.patient_id">
                 <option ng-repeat="user in allUsers | filter:{role: 'patient'}" ng-selected="visit.patient_id == user.id ? true : false" value="{{user.id}}">{{user.name}}</option>
             </select>
             <!-- TODO: Add a option here -->

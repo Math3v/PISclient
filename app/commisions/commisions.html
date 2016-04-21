@@ -46,7 +46,7 @@
             <button class="btn btn-default btn-sm" ng-click="showEditModal(commision)" access="{{'edit-'+obj}}">Edit</button>
           </td>
           <td>
-            <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteCommission" access="{{'delete-'+obj}}">Delete</button>
+            <button class="btn btn-danger btn-sm" ng-click="deleteObject(commision)" access="{{'delete-'+obj}}">Delete</button>
           </td>
         </tr>
       </table>

@@ -35,18 +35,19 @@
             {{userNames[examination.patient_id]}}
           </td>
           <td>
-            <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#" access="{{'edit-'+obj}}" ng-click="toggleEdit(examination)" ng-hide="examination.edit">Edit</button>
+            <button class="btn btn-default btn-sm" ng-click="showEditModal(examination)" access="{{'edit-'+obj}}">Edit</button>
           </td>
           <td>
-            <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#" access="{{'delete-'+obj}}" ng-click="deleteObject(examination)">Delete</button>
+            <button class="btn btn-danger btn-sm" ng-click="deleteObject(examination)" access="{{'delete-'+obj}}">Delete</button>
           </td>
         </tr>
       </table>
     </div>
   </div>
-  <button class="btn btn-success" aria-label="New Examination" data-toggle="modal" data-target="#">
-    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> New Examination
+  <button class="btn btn-success" aria-label="New Examination" data-toggle="modal" data-target="#newExamination">
+    <span class="glyphicon glyphicon-plus" aria-hidden="true" access="{{'add-'+obj}}"></span> New Examination
   </button>
+  
   
   <!-- Modal windows section -->
   
@@ -61,18 +62,25 @@
         <div class="modal-body">
           <form>
             <div class="form-group">
-              <label for="name">Description</label>
-              <input type="text" class="form-control" id="name" placeholder="Name" ng-model="examination.name" required>
+              <label for="description">Description</label>
+              <input type="text" class="form-control" id="description" placeholder="Description" ng-model="examination.description" required>
             </div>
             <div class="form-group date">
               <label for="date">Date</label>
-              <input type="text" data-provide="datepicker" class="form-control" id="date" placeholder="Date" ng-model="examination.date">
+              <input type="text" data-provide="datepicker" class="form-control" id="date" placeholder="Date" ng-model="examination.date" required>
             </div>
+            <div class="form-group">
+              <label for="recipe">Recipe</label>
+              <input type="text" class="form-control" id="recipe" placeholder="Recipe" ng-model="examination.recipe">
+            </div>
+            <select name="examinationPatient" ng-model="examination.patient_id">
+                <option ng-repeat="user in allUsers | filter:{role: 'patient'}" ng-selected="examination.patient_id == user.id ? true : false" value="{{user.id}}">{{user.name}}</option>
+            </select>
           </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" ng-click="editObject(examination)">Save changes</button>
+          <button type="button" class="btn btn-primary" ng-click="editObject(examination)" ng-disabled="form.$invalid">Save changes</button>
         </div>
       </div>
     </div>
@@ -89,18 +97,25 @@
         <div class="modal-body">
           <form>
             <div class="form-group">
-              <label for="name">Description</label>
-              <input type="text" class="form-control" id="name" placeholder="Name" required>
+              <label for="description">Description</label>
+              <input type="text" class="form-control" id="description" placeholder="Description" ng-model="examination.description" required>
             </div>
             <div class="form-group date">
               <label for="date">Date</label>
-              <input type="text" data-provide="datepicker" class="form-control" id="date" placeholder="Date">
+              <input type="text" data-provide="datepicker" class="form-control" id="date" placeholder="Date" ng-model="examination.date" required>
             </div>
+            <div class="form-group">
+              <label for="recipe">Recipe</label>
+              <input type="text" class="form-control" id="recipe" placeholder="Recipe" ng-model="examination.recipe">
+            </div>
+            <select name="examinationPatient" ng-model="examination.patient_id">
+                <option ng-repeat="user in allUsers | filter:{role: 'patient'}" ng-selected="examination.patient_id == user.id ? true : false" value="{{user.id}}">{{user.name}}</option>
+            </select>
           </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" ng-click="newObject(examination)">Add</button>
+          <button type="button" class="btn btn-primary" ng-click="modalNewObject(examination)">Add</button>
         </div>
       </div>
     </div>
