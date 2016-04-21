@@ -67,7 +67,7 @@
           <h4 class="modal-title" id="myModalLabel">Edit Commission</h4>
         </div>
         <div class="modal-body">
-          <form>
+          <form name="form">
             <div class="form-group">
               <label for="name">Name</label>
               <input type="text" class="form-control" id="name" placeholder="Name" ng-model="commision.name" required>
@@ -92,7 +92,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" ng-click="editObject(commision)">Save changes</button>
+          <button type="button" class="btn btn-primary" ng-click="editObject(commision)" ng-disabled="form.$invalid">Save changes</button>
         </div>
       </div>
     </div>
