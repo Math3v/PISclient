@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid" ng-controller="visitsController">
   <div class="panel panel-default">
     <div class="panel-heading">
       <h4>Visits</h4>
@@ -40,13 +40,13 @@
             <button class="btn btn-default btn-sm" ng-click="showEditModal(visit)" access="{{'edit-'+obj}}">Edit</button>
           </td>
           <td>
-            <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteVisit" access="{{'delete-'+obj}}">Delete</button>
+            <button class="btn btn-danger btn-sm" ng-click="deleteObject(visit)" access="{{'delete-'+obj}}">Delete</button>
           </td>
         </tr>
       </table>
     </div>
   </div>
-  <button class="btn btn-success" aria-label="New visit" data-toggle="modal" data-target="#newVisit">
+  <button class="btn btn-success" aria-label="New visit" ng-click="showNewModal()">
     <span class="glyphicon glyphicon-plus" aria-hidden="true" access="{{'add-'+obj}}"></span> New Visit
   </button>
 
@@ -98,8 +98,8 @@
               <label for="time">Time</label>
                <input type="text" class="form-control" id="time" placeholder="Time" ng-model="visit.time" required>
             </div>
-            <select name="visitDoctor" ng-model="visit.doctor_id">
-                <option ng-repeat="user in allUsers | filter:{role: 'doctor'}" ng-selected="visit.doctor_id == user.id ? true : false" value="user.id">{{user.name}}</option>
+            <select name="visitDoctor" ng-model="visit.patient_id">
+                <option ng-repeat="user in allUsers | filter:{role: 'patient'}" ng-selected="visit.patient_id == user.id ? true : false" value="{{user.id}}">{{user.name}}</option>
             </select>
             <!-- TODO: Add a option here -->
           </form>

@@ -70,6 +70,8 @@ angular.module('myApp.crudModule', [])
 	}
 
 	$scope.deleteObject = function(object) {
+		console.log( "Delete ", object);
+		console.log( url );
 		$http({
 			method: 'DELETE',
 			url: apiUrl+url+'/'+object.id
