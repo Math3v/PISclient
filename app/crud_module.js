@@ -33,6 +33,19 @@ angular.module('myApp.crudModule', [])
 		$scope.users.push( obj );
 	}
 
+	$scope.modalNewObject = function(obj) {
+		$http({
+			method: 'POST',
+			url: apiUrl+url,
+			data: obj
+		}).then(function(response) {
+			console.log("Success ", response);
+			$scope.loadObjects();
+		}, function(response) {
+			console.log(response);
+		});
+	}
+
 	$scope.editObject = function(object) {
 		var method;
 		if( object.hasOwnProperty('_new') && object._new === true ) {
