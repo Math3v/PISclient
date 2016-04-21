@@ -51,42 +51,107 @@ angular.module('myApp.users', ['ngRoute'])
   });
 }])
 
-.controller('patientsBoardController', ['$scope', '$http', 'apiUrl', '$routeParams', function($scope, $http, apiUrl, $routeParams){
+.controller('patientsBoardController', ['$scope', '$http', 'apiUrl', '$routeParams', 'currentUserService', function($scope, $http, apiUrl, $routeParams, currentUserService){
   
-  $http({
-    method: 'GET',
-    url: apiUrl + '/APIUsers/' + $routeParams.id
-  }).then(function(response) {
-    $scope.user = response.data;
-  }, function(response) {
-    console.log( "Error: ", response );
-  })
+  $scope.init = function() {
+    $http({
+      method: 'GET',
+      url: apiUrl + '/APIUsers/' + $routeParams.id
+    }).then(function(response) {
+      $scope.user = response.data;
+    }, function(response) {
+      console.log( "Error: ", response );
+    })
 
-  $http({
-    method: 'GET',
-    url: apiUrl + '/Commissions'
-  }).then(function(response) {
-    $scope.commissions = response.data;
-  }, function(response) {
-    console.log( "Error: ", response) ;
-  });
+    $http({
+      method: 'GET',
+      url: apiUrl + '/Commissions'
+    }).then(function(response) {
+      $scope.commissions = response.data;
+    }, function(response) {
+      console.log( "Error: ", response) ;
+    });
 
-  $http({
-    method: 'GET',
-    url: apiUrl + '/Examinations'
-  }).then(function(response) {
-    $scope.examinations = response.data;
-  }, function(response) {
-    console.log( "Error: ", response);
-  });
+    $http({
+      method: 'GET',
+      url: apiUrl + '/Examinations'
+    }).then(function(response) {
+      $scope.examinations = response.data;
+    }, function(response) {
+      console.log( "Error: ", response);
+    });
 
-  $http({
-    method: 'GET',
-    url: apiUrl + '/Acts'
-  }).then(function(response) {
-    $scope.acts = response.data;
-  }, function(response) {
-    console.log( "Error: ", response );
-  });
+    $http({
+      method: 'GET',
+      url: apiUrl + '/Acts'
+    }).then(function(response) {
+      $scope.acts = response.data;
+    }, function(response) {
+      console.log( "Error: ", response );
+    });
+  }
+
+  $scope.init();
+
+  $scope.newExaminationModal = function() {
+    $scope.examination = {};
+    $( "#newExamination" ).modal('show');
+  }
+
+  $scope.newCommissionModal = function() {
+    $scope.commission = {};
+    $( "#newCommission" ).modal('show');
+  }
+
+  $scope.newObject = function(obj, url) {
+    obj.patient_id = $scope.user.id;
+    obj.doctor_id = currentUserService.getUser().id;
+    $http({
+      method: 'POST',
+      url: apiUrl + url,
+      data: obj
+    }).then(function(response) {
+      console.log("Success");
+      $scope.init();
+    }, function(response) {
+      console.log("Error", response);
+    })
+  }
+
+  $scope.editObject = function(obj, url) {
+    $http({
+      method: 'PUT',
+      url: apiUrl + url,
+      data: obj
+    }).then(function(response) {
+      console.log("Success");
+      $scope.init();
+    }, function(response) {
+      console.log("Error", response);
+    })
+  }
+
+  $scope.deleteObject = function(obj, url) {
+    $http({
+      method: 'DELETE',
+      url: apiUrl + url + '/' + obj.id
+    }).then(function(response) {
+      console.log("SUCCESS");
+      $scope.init();
+    }, function(response) {
+      console.log("ERROR ", response);
+    })
+  }
+
+  $scope.showExaminationEdit = function(examination) {
+    $scope.examination = examination;
+    $( "#editExamination" ).modal('show');
+  }
+
+  $scope.showCommissionEdit = function(commission) {
+    $scope.commission = commission;
+    console.log( $scope.commission );
+    $( "#editCommission" ).modal('show');
+  }
 
 }]);

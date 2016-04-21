@@ -1,4 +1,4 @@
-<div class="container-fluid" ng-controller="commissionsController">
+<div class="container-fluid">
   <div class="panel panel-default">
     <div class="panel-heading"><h4>Personal data</h4></div>
     <div class="table-responsive">
@@ -42,7 +42,7 @@
   <div class="panel panel-default">
     <div class="panel-heading">
       <h4 class="pull-left">Examinations</h4>
-      <button class="btn btn-success pull-right" aria-label="New examination" data-toggle="modal" data-target="#newCommission">
+      <button class="btn btn-success pull-right" aria-label="New examination" ng-click="newExaminationModal()">
         <span class="glyphicon glyphicon-plus" aria-hidden="true" access="{{'add-'+obj}}"></span> New Examination
       </button>
       <div class="clearfix"></div>
@@ -57,7 +57,10 @@
             {{examination.description}}
           </td>
           <td>
-            <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#" access="{{'edit-'+obj}}" ng-click="toggleEdit(examination)" ng-hide="examination.edit">Show detail</button>
+            <button class="btn btn-default btn-sm" access="'edit-examination'" ng-click="showExaminationEdit(examination)" ng-hide="examination.edit">Show detail</button>
+          </td>
+          <td>
+            <button class="btn btn-danger btn-sm" access="'delete-examination'" ng-click="deleteObject(examination, '/Examinations')">Delete</button>
           </td>
         </tr>
         <tr ng-repeat="act in acts | filter:{examination_id: examination.id}"><!-- This have to be done for all ACTS on this examination -->
@@ -67,6 +70,7 @@
             {{act.note}}
           </td>
           <td></td>
+          <td></td>
         </tr>
       </table>
     </div>
@@ -75,7 +79,7 @@
   <div class="panel panel-default">
     <div class="panel-heading">
       <h4 class="pull-left">Commissons</h4>
-      <button class="btn btn-success pull-right" aria-label="New commission" data-toggle="modal" data-target="#newPatieCommission">
+      <button class="btn btn-success pull-right" aria-label="New commission" ng-click="newCommissionModal()">
         <span class="glyphicon glyphicon-plus" aria-hidden="true" access="{{'add-'+obj}}"></span> New Commission
       </button>
       <div class="clearfix"></div>
@@ -95,8 +99,12 @@
           <th class="col-md-2">
             Laboratory
           </th>
+          <th class="col-md-2">
+          </th>
+          <th class="col-md-2">
+          </th>
         </tr>
-        <tr ng-repeat="commision in commissions | showVisitFilter:user">
+        <tr ng-repeat="commision in commissions | filter:{patient_id: user.id}">
           <td class="col-md-2">
             {{commision.date}}
           </td>
@@ -108,6 +116,12 @@
           </td>
           <td class="col-md-2">
             {{commision.laboratory}}
+          </td>
+          <td class="col-md-2">
+            <button class="btn btn-default btn-sm" access="'edit-commission'" ng-click="showCommissionEdit(commision)">Show detail</button>
+          </td>
+          <td class="col-md-2">
+            <button class="btn btn-danger btn-sm" access="'delete-commission'" ng-click="deleteObject(commision, '/Commissions')">Delete</button>
           </td>
         </tr>
       </table>
@@ -128,7 +142,7 @@
           <form>
             <div class="form-group">
               <label for="name">Description</label>
-              <input type="text" class="form-control" id="name" placeholder="Name" ng-model="examination.name" required>
+              <input type="text" class="form-control" id="name" placeholder="Description" ng-model="examination.description" required>
             </div>
             <div class="form-group date">
               <label for="date">Date</label>
@@ -138,7 +152,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" ng-click="editObject(examination)">Save changes</button>
+          <button type="button" class="btn btn-primary" ng-click="editObject(examination, '/Examinations')">Save changes</button>
         </div>
       </div>
     </div>
@@ -156,17 +170,17 @@
           <form>
             <div class="form-group">
               <label for="name">Description</label>
-              <input type="text" class="form-control" id="name" placeholder="Name" required>
+              <input type="text" class="form-control" id="name" placeholder="Description" ng-model="examination.description" required>
             </div>
             <div class="form-group date">
               <label for="date">Date</label>
-              <input type="text" data-provide="datepicker" class="form-control" id="date" placeholder="Date">
+              <input type="text" data-provide="datepicker" class="form-control" id="date" placeholder="Date" ng-model="examination.date">
             </div>
           </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" ng-click="newObject(examination)">Add</button>
+          <button type="button" class="btn btn-primary" ng-click="newObject(examination, '/Examinations')">Add</button>
         </div>
       </div>
     </div>
@@ -200,29 +214,29 @@
           <form>
             <div class="form-group">
               <label for="name">Name</label>
-              <input type="text" class="form-control" id="name" placeholder="Name" ng-model="commision.name" required>
+              <input type="text" class="form-control" id="name" placeholder="Name" ng-model="commission.name" required>
             </div>
             <div class="form-group">
               <label for="code">Code</label>
-              <input type="text" class="form-control" id="code" placeholder="Code" ng-model="commision.code">
+              <input type="text" class="form-control" id="code" placeholder="Code" ng-model="commission.code">
             </div>
             <div class="form-group">
               <label for="note">Note</label>
-              <input type="text" class="form-control" id="note" placeholder="Note" ng-model="commision.note">
+              <input type="text" class="form-control" id="note" placeholder="Note" ng-model="commission.note">
             </div>
             <div class="form-group">
               <label for="laboratory">Laboratory</label>
-              <input type="text" class="form-control" id="laboratory" placeholder="Laboratory" ng-model="commision.laboratory">
+              <input type="text" class="form-control" id="laboratory" placeholder="Laboratory" ng-model="commission.laboratory">
             </div>
             <div class="form-group date">
               <label for="date">Date</label>
-              <input type="text" data-provide="datepicker" class="form-control" id="date" placeholder="Date" ng-model="commision.date">
+              <input type="text" data-provide="datepicker" class="form-control" id="date" placeholder="Date" ng-model="commission.date">
             </div>
           </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" ng-click="editObject(commision)">Save changes</button>
+          <button type="button" class="btn btn-primary" ng-click="editObject(commission, '/Commissions')">Save changes</button>
         </div>
       </div>
     </div>
@@ -262,7 +276,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" ng-click="newObject(commission)">Add</button>
+          <button type="button" class="btn btn-primary" ng-click="newObject(commission, '/Commissions')">Add</button>
         </div>
       </div>
     </div>
