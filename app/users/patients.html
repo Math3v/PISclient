@@ -10,7 +10,7 @@
 	<button access="{{'add-'+obj}}" ng-click="newObject({role: 'patient'})">New patient</button>
 </ul>
 
-<div class="container-fluid">
+<div class="container-fluid" ng-controller="patientsController">
   <div class="panel panel-default">
     <div class="panel-heading">
       <h4>Patients</h4>
@@ -58,7 +58,7 @@
       </table>
     </div>
   </div>
-  <button class="btn btn-success" aria-label="New Patient" data-toggle="modal" data-target="#newPatient">
+  <button class="btn btn-success" aria-label="New Patient" ng-click="showNewModal()">
     <span class="glyphicon glyphicon-plus" aria-hidden="true" access="{{'add-'+obj}}"></span> New Patient
   </button>
   
@@ -131,7 +131,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" ng-click="modalNewObject(patient)">Add</button>
+          <button type="button" class="btn btn-primary" ng-click="modalNewObject(patient, {role: 'patient'})">Add</button>
         </div>
       </div>
     </div>

@@ -154,4 +154,18 @@ angular.module('myApp.users', ['ngRoute'])
     $( "#editCommission" ).modal('show');
   }
 
+}])
+
+.controller('patientsController', ['$scope', '$http', 'apiUrl', function($scope, $http, apiUrl){
+  
+    $scope.showEditModal = function(patient) {
+      $scope.patient = patient;
+      $( "#editPatient" ).modal('show');
+    }
+
+    $scope.showNewModal = function() {
+      $scope.patient = {};
+      $( "#newPatient" ).modal('show');
+    }
+
 }]);

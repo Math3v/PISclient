@@ -33,7 +33,14 @@ angular.module('myApp.crudModule', [])
 		$scope.users.push( obj );
 	}
 
-	$scope.modalNewObject = function(obj) {
+	$scope.modalNewObject = function(obj, options) {
+
+		if( typeof options !== 'undefined' ) {
+			for( var option in options ) {
+				obj[option] = options[option];
+			}
+		}
+
 		$http({
 			method: 'POST',
 			url: apiUrl+url,
