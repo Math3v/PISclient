@@ -60,12 +60,12 @@
           <h4 class="modal-title" id="myModalLabel">Edit Examination</h4>
         </div>
         <div class="modal-body">
-          <form>
-            <div class="form-group">
+          <form role="form" data-toggle="validator">
+            <div class="form-group has-feedback">
               <label for="description">Description</label>
               <input type="text" class="form-control" id="description" placeholder="Description" ng-model="examination.description" required>
             </div>
-            <div class="form-group date">
+            <div class="form-group date has-feedback">
               <label for="date">Date</label>
               <input type="text" data-provide="datepicker" class="form-control" id="date" placeholder="Date" ng-model="examination.date" required>
             </div>
@@ -73,7 +73,8 @@
               <label for="recipe">Recipe</label>
               <input type="text" class="form-control" id="recipe" placeholder="Recipe" ng-model="examination.recipe">
             </div>
-            <select name="examinationPatient" ng-model="examination.patient_id">
+            <label for="sel_patient">Patient:</label>
+            <select name="examinationPatient" ng-model="examination.patient_id" class="form-control" id="sel_patient" has-feedback>
                 <option ng-repeat="user in allUsers | filter:{role: 'patient'}" ng-selected="examination.patient_id == user.id ? true : false" value="{{user.id}}">{{user.name}}</option>
             </select>
           </form>
@@ -95,12 +96,12 @@
           <h4 class="modal-title" id="myModalLabel">New Examination</h4>
         </div>
         <div class="modal-body">
-          <form>
-            <div class="form-group">
+          <form role="form" data-toggle="validator">
+            <div class="form-group has-feedback">
               <label for="description">Description</label>
               <input type="text" class="form-control" id="description" placeholder="Description" ng-model="examination.description" required>
             </div>
-            <div class="form-group date">
+            <div class="form-group date has-feedback">
               <label for="date">Date</label>
               <input type="text" data-provide="datepicker" class="form-control" id="date" placeholder="Date" ng-model="examination.date" required>
             </div>
@@ -108,7 +109,8 @@
               <label for="recipe">Recipe</label>
               <input type="text" class="form-control" id="recipe" placeholder="Recipe" ng-model="examination.recipe">
             </div>
-            <select name="examinationPatient" ng-model="examination.patient_id">
+            <label for="sel_patient">Patient:</label>
+            <select name="examinationPatient" ng-model="examination.patient_id" class="form-control" id="sel_patient" has-feedback>
                 <option ng-repeat="user in allUsers | filter:{role: 'patient'}" ng-selected="examination.patient_id == user.id ? true : false" value="{{user.id}}">{{user.name}}</option>
             </select>
           </form>

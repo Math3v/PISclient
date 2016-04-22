@@ -7,7 +7,7 @@
           <td class="col-md-1">
             Name
           </td>
-          <td class="col-md-1">
+          <td class="col-md-5">
             {{user.name}}
           </td>
         </tr>
@@ -15,7 +15,7 @@
           <td class="col-md-1">
             Personal identification number
           </td>
-          <td class="col-md-1">
+          <td class="col-md-5">
             {{user.pin}}
           </td>
         </tr>
@@ -23,7 +23,7 @@
           <td class="col-md-1">
             Phone
           </td>
-          <td class="col-md-1">
+          <td class="col-md-5">
             {{user.phone}}
           </td>
         </tr>
@@ -31,7 +31,7 @@
           <td class="col-md-1">
             Address
           </td>
-          <td class="col-md-1">
+          <td class="col-md-5">
             {{user.address}}
           </td>
         </tr>
@@ -48,29 +48,43 @@
       <div class="clearfix"></div>
     </div>
     <div class="table-responsive">
-      <table class="table table-striped" ng-repeat="examination in examinations | filter:{patient_id: user.id}"><!-- This have to be done just for actual patient -->
-        <tr>
-          <td class="col-md-1">
-            {{examination.date}}
-          </td>
-          <td class="col-md-3">
-            {{examination.description}}
-          </td>
+      <table class="table">
+        <tr ng-repeat="examination in examinations | filter:{patient_id: user.id}">
           <td>
-            <button class="btn btn-default btn-sm" access="'edit-examination'" ng-click="showExaminationEdit(examination)" ng-hide="examination.edit">Show detail</button>
+            <div class="table-responsive">
+              <table class="table" >
+                <tr>
+                  <td class="col-md-2">
+                    {{examination.date}}
+                  </td>
+                  <td class="col-md-3">
+                    {{examination.description}}
+                  </td>
+                  <td class="col-md-1">
+                    <button class="btn btn-success btn-sm" access="'add-act'" ng-click="" ng-hide="">
+                      <span class="glyphicon glyphicon-plus" aria-hidden="true" access="{{'add-'+obj}}"></span> Add act
+                    </button>
+                  </td>
+                  <td class="col-md-1">
+                    <button class="btn btn-default btn-sm" access="'edit-examination'" ng-click="showExaminationEdit(examination)" ng-hide="examination.edit">Show detail</button>
+                  </td>
+                  <td>
+                    <button class="btn btn-danger btn-sm" ng-click="deleteObject(examination)" access="{{'delete-'+obj}}">Delete</button>
+                  </td>
+                </tr>
+                <tr ng-repeat="act in acts | filter:{examination_id: examination.id}"><!-- This have to be done for all ACTS on this examination -->
+                  <td class="col-md-2">
+                  </td>
+                  <td class="col-md-3">
+                    {{act.note}}
+                  </td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </table>
+            </div>
           </td>
-          <td>
-            <button class="btn btn-danger btn-sm" ng-click="deleteObject(examination)" access="{{'delete-'+obj}}">Delete</button>
-          </td>
-        </tr>
-        <tr ng-repeat="act in acts | filter:{examination_id: examination.id}"><!-- This have to be done for all ACTS on this examination -->
-          <td class="col-md-1">
-          </td>
-          <td class="col-md-3">
-            {{act.note}}
-          </td>
-          <td></td>
-          <td></td>
         </tr>
       </table>
     </div>
@@ -139,12 +153,12 @@
           <h4 class="modal-title" id="myModalLabel">Edit Examination</h4>
         </div>
         <div class="modal-body">
-          <form>
-            <div class="form-group">
+          <form role="form" data-toggle="validator">
+            <div class="form-group has-feedback">
               <label for="description">Description</label>
-              <input type="text" class="form-control" id="description" placeholder="Description" ng-model="examination.description" required>
+              <textarea rows="5" type="text" class="form-control" id="description" placeholder="Description" ng-model="examination.description" required></textarea>
             </div>
-            <div class="form-group date">
+            <div class="form-group date has-feedback">
               <label for="date">Date</label>
               <input type="text" data-provide="datepicker" class="form-control" id="date" placeholder="Date" ng-model="examination.date" required>
             </div>
@@ -171,12 +185,12 @@
           <h4 class="modal-title" id="myModalLabel">New Examination</h4>
         </div>
         <div class="modal-body">
-          <form>
-            <div class="form-group">
+          <form role="form" data-toggle="validator">
+            <div class="form-group has-feedback">
               <label for="description">Description</label>
-              <input type="text" class="form-control" id="description" placeholder="Description" ng-model="examination.description" required>
-            </div>
-            <div class="form-group date">
+              <textarea rows="5" type="text" class="form-control" id="description" placeholder="Description" ng-model="examination.description" required></textarea>
+            </div> 
+            <div class="form-group date has-feedback">
               <label for="date">Date</label>
               <input type="text" data-provide="datepicker" class="form-control" id="date" placeholder="Date" ng-model="examination.date" required>
             </div>
@@ -210,6 +224,30 @@
     </div>
   </div>
   
+  <!-- New act -->
+  <div class="modal fade" id="newAct" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">New act</h4>
+        </div>
+        <div class="modal-body">
+          <form role="form" data-toggle="validator">
+            <div class="form-group has-feedback">
+              <label for="description">Description</label>
+              <textarea rows="5" type="text" class="form-control" id="description" placeholder="Description" ng-model="act.description" required></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" ng-click="">Add</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
   <!-- Commission edit -->
   <div class="modal fade" id="editCommission" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
@@ -219,8 +257,8 @@
           <h4 class="modal-title" id="myModalLabel">Edit Commission</h4>
         </div>
         <div class="modal-body">
-          <form>
-            <div class="form-group">
+          <form role="form" data-toggle="validator">
+            <div class="form-group has-feedback">
               <label for="name">Name</label>
               <input type="text" class="form-control" id="name" placeholder="Name" ng-model="commission.name" required>
             </div>
@@ -232,7 +270,7 @@
               <label for="note">Note</label>
               <input type="text" class="form-control" id="note" placeholder="Note" ng-model="commission.note">
             </div>
-            <div class="form-group">
+            <div class="form-group has-feedback">
               <label for="laboratory">Laboratory</label>
               <input type="text" class="form-control" id="laboratory" placeholder="Laboratory" ng-model="commission.laboratory" required>
             </div>
@@ -259,8 +297,8 @@
           <h4 class="modal-title" id="myModalLabel">New Commission</h4>
         </div>
         <div class="modal-body">
-          <form>
-            <div class="form-group">
+          <form role="form" data-toggle="validator">
+            <div class="form-group has-feedback">
               <label for="name">Name</label>
               <input type="text" ng-model="commission.name" class="form-control" id="name" placeholder="Name" required>
             </div>
@@ -272,7 +310,7 @@
               <label for="note">Note</label>
               <input type="text" ng-model="commission.note" class="form-control" id="note" placeholder="Note">
             </div>
-            <div class="form-group">
+            <div class="form-group has-feedback">
               <label for="laboratory">Laboratory</label>
               <input type="text" ng-model="commission.laboratory" class="form-control" id="laboratory" placeholder="Laboratory" required>
             </div>

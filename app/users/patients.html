@@ -3,7 +3,7 @@
 	<li ng-repeat="user in users | filter: {role: 'patient'}">
 		<user user="user" 
 			obj="obj"
-			toggle-edit="toggleEdit(user)"
+			toggle-edit=""
 			edit-object="editObject(user)"
 			delete-object="deleteObject(user)"></user>
 	</li>
@@ -34,6 +34,8 @@
           </th>
           <th>
           </th>
+          <th>
+          </th>
         </tr>
         <tr ng-repeat="patient in users | filter: {role: 'patient'}">
           <td class="col-md-2">
@@ -45,13 +47,16 @@
           <td class="col-md-2">
             {{patient.phone}}
           </td>
-          <td class="col-md-2">
+          <td class="col-md-1">
             {{patient.address}}
           </td>
-          <td>
+          <td class="col-md-1">
+            <button class="btn btn-info btn-sm" ng-click="">Patient card</button>
+          </td>
+          <td class="col-md-1">
             <button class="btn btn-default btn-sm" ng-click="showEditModal(patient)" access="{{'edit-'+obj}}">Edit</button>
           </td>
-          <td>
+          <td class="col-md-1">
             <button class="btn btn-danger btn-sm" ng-click="deleteObject(patient)" access="{{'delete-'+obj}}">Delete</button>
           </td>
         </tr>

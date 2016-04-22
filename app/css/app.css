@@ -32,8 +32,3 @@
 .hidden {
   display: none;
 }
-
-input.ng-invalid {
-  background: red;
-  color: white;
-}
