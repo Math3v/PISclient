@@ -1,7 +1,7 @@
 <div class="container-fluid" ng-controller="visitsController">
   <div class="panel panel-default">
     <div class="panel-heading">
-      <h4>Visits</h4>
+      <h4>Uncorfirmed visits</h4>
     </div>
     <div class="table-responsive">
       <table class="table table-striped">
@@ -23,32 +23,82 @@
           <th>
           </th>
         </tr>
-        <tr ng-repeat="visit in users | showVisitFilter:currentUser">
-          <td class="col-md-2">
+        <tr ng-repeat="visit in users | showVisitFilter:currentUser"> <!-- This should be done just for unconfirmed visits-->
+          <td class="col-md-2" style="vertical-align:middle;">
             {{visit.date}}
           </td>
-          <td class="col-md-2">
+          <td class="col-md-2" style="vertical-align:middle;">
             {{visit.time}}
           </td>
-          <td class="col-md-2">
+          <td class="col-md-2" style="vertical-align:middle;">
             {{visit.patient_id}}
           </td>
-          <td class="col-md-2">
-            {{visit.status}}
+          <td class="col-md-2" style="vertical-align:middle;">
+            {{visit.status}} &nbsp;&nbsp;&nbsp;
+            <img class="{{visit.status}}" src="" width="40" height="40"/>
           </td>
-          <td>
+          <td style="vertical-align:middle;">
             <button class="btn btn-default btn-sm" ng-click="showEditModal(visit)" access="{{'edit-'+obj}}">Edit</button>
           </td>
-          <td>
+          <td style="vertical-align:middle;">
             <button class="btn btn-danger btn-sm" ng-click="deleteObject(visit)" access="{{'delete-'+obj}}">Delete</button>
           </td>
         </tr>
       </table>
     </div>
   </div>
-  <button class="btn btn-success" aria-label="New visit" ng-click="showNewModal()">
-    <span class="glyphicon glyphicon-plus" aria-hidden="true" access="{{'add-'+obj}}"></span> New Visit
-  </button>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="pull-left">Confirmed visits</h4>
+      <button class="btn btn-success pull-right" aria-label="New visit" ng-click="showNewModal()">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true" access="{{'add-'+obj}}"></span> New Visit
+      </button>
+      <div class="clearfix"></div>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <tr>
+          <th class="col-md-2">
+            Date
+          </th >
+          <th class="col-md-2">
+            Time
+          </th>
+          <th class="col-md-2">
+            Patient
+          </th>
+          <th class="col-md-2">
+            Status
+          </th>
+          <th>
+          </th>
+          <th>
+          </th>
+        </tr>
+        <tr ng-repeat="visit in users | showVisitFilter:currentUser"> <!-- This should be done just for confirmed visits-->
+          <td class="col-md-2" style="vertical-align:middle;">
+            {{visit.date}}
+          </td>
+          <td class="col-md-2" style="vertical-align:middle;">
+            {{visit.time}}
+          </td>
+          <td class="col-md-2" style="vertical-align:middle;">
+            {{visit.patient_id}}
+          </td>
+          <td class="col-md-2" style="vertical-align:middle;">
+            {{visit.status}} &nbsp;&nbsp;&nbsp;
+            <img class="{{visit.status}}" src="" width="40" height="40"/>
+          </td>
+          <td style="vertical-align:middle;">
+            <button class="btn btn-default btn-sm" ng-click="showEditModal(visit)" access="{{'edit-'+obj}}">Edit</button>
+          </td>
+          <td style="vertical-align:middle;">
+            <button class="btn btn-danger btn-sm" ng-click="deleteObject(visit)" access="{{'delete-'+obj}}">Delete</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
 
   <!-- Modal windows section -->
   
@@ -72,12 +122,14 @@
             </div>
             <div class="form-group">
               <label for="status">Status</label>
-              <input type="text" class="form-control" id="status" placeholder="Status" ng-model="visit.status" required>
+              <select class="selectpicker">
+                <option data-content='<img src="img/accept.png" width="40" height="40"/>'> confirmed</option>
+                <option data-content='<img src="img/waiting.png" width="40" height="40"/>'> unconfirmed</option>
+              </select>
             </div>
             <select name="visitPatient" ng-model="visit.patient_id">
                 <option ng-repeat="user in allUsers | filter:{role: 'patient'}" ng-selected="visit.patient_id == user.id ? true : false" value="{{user.id}}">{{user.name}}</option>
             </select>
-            
           </form>
         </div>
         <div class="modal-footer">
@@ -107,13 +159,11 @@
                <input type="text" class="form-control" id="time" placeholder="hh:mm" ng-model="visit.time" required>
             </div>
             <div class="form-group">
-              <label for="status">Status</label>
-              <input type="text" class="form-control" id="status" placeholder="new" ng-model="visit.status" required>
+              <input type="hidden" class="form-control" id="status" ng-model="visit.status">
             </div>
             <select name="visitPatient" ng-model="visit.patient_id">
                 <option ng-repeat="user in allUsers | filter:{role: 'patient'}" ng-selected="visit.patient_id == user.id ? true : false" value="{{user.id}}">{{user.name}}</option>
             </select>
-            <!-- TODO: Add a option here -->
           </form>
         </div>
         <div class="modal-footer">

@@ -26,3 +26,14 @@ angular.module('myApp.visits', [])
 		$( "#editVisit" ).modal('show');
 	}
 }])
+
+document.addEventListener("DOMContentLoaded", function(event) { 
+  setTimeout(function(){ 
+    var elements_new = document.getElementsByClassName("new");
+    var elements_confirm = document.getElementsByClassName("confirmed");
+    for(var i=0; i<elements_new.length; i++)
+      elements_new[i].setAttribute("src", "img/waiting.png");
+    for(var i=0; i<elements_confirm.length; i++)
+      elements_confirm[i].setAttribute("src", "img/accept.png");
+  }, 400);
+});
