@@ -9,3 +9,133 @@
 	</li>
 	<button access="{{'add-'+obj}}" ng-click="newObject({role: 'doctor'})">New doctor</button>
 </ul>
+
+<div class="container-fluid" ng-controller="patientsController">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4>Doctors</h4>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <tr>
+          <th class="col-md-2">
+            Name
+          </th >
+          <th class="col-md-2">
+            Personal ID
+          </th>
+          <th class="col-md-2">
+            Phone
+          </th>
+          <th class="col-md-2">
+            Address
+          </th>
+          <th>
+          </th>
+          <th>
+          </th>
+        </tr>
+        <tr ng-repeat="doctor in users | filter: {role: 'doctor'}">
+          <td class="col-md-2">
+            {{doctor.name}}
+          </td>
+          <td class="col-md-2">
+            {{doctor.pin}}
+          </td>
+          <td class="col-md-2">
+            {{doctor.phone}}
+          </td>
+          <td class="col-md-2">
+            {{doctor.address}}
+          </td>
+          <td>
+            <button class="btn btn-default btn-sm" ng-click="showEditModal(doctor)" access="{{'edit-'+obj}}">Edit</button>
+          </td>
+          <td>
+            <button class="btn btn-danger btn-sm" ng-click="deleteObject(doctor)" access="{{'delete-'+obj}}">Delete</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <button class="btn btn-success" aria-label="New Patient" data-toggle="modal" data-target="#newPatient">
+    <span class="glyphicon glyphicon-plus" aria-hidden="true" access="{{'add-'+obj}}"></span> New Patient
+  </button>
+  
+  
+  <!-- Modal windows section -->
+  
+  <!-- Doctor edit -->
+  <div class="modal fade" id="editPatient" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Edit Doctor</h4>
+        </div>
+        <div class="modal-body">
+          <form name="form">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" class="form-control" id="name" placeholder="Name" ng-model="doctor.name" required>
+            </div>
+            <div class="form-group">
+              <label for="pin">Personal ID</label>
+              <input type="text" class="form-control" id="pin" placeholder="Personal ID" ng-model="doctor.pin">
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input type="text" class="form-control" id="phone" placeholder="Phone" ng-model="doctor.phone">
+            </div>
+            <div class="form-group">
+              <label for="address">Address</label>
+              <input type="text" class="form-control" id="address" placeholder="Address" ng-model="doctor.address" required>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" ng-click="editObject(doctor)" ng-disabled="form.$invalid">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- New doctor -->
+  <div class="modal fade" id="newCommission" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">New Doctor</h4>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" class="form-control" id="name" placeholder="Name" ng-model="doctor.name" required>
+            </div>
+            <div class="form-group">
+              <label for="pin">Personal ID</label>
+              <input type="text" class="form-control" id="pin" placeholder="Personal ID" ng-model="doctor.pin">
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input type="text" class="form-control" id="phone" placeholder="Phone" ng-model="doctor.phone">
+            </div>
+            <div class="form-group">
+              <label for="address">Address</label>
+              <input type="text" class="form-control" id="address" placeholder="Address" ng-model="doctor.address" required>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" ng-click="modalNewObject(doctor)">Add</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+</div>
