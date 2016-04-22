@@ -46,7 +46,7 @@ angular.module('myApp.visits', [])
 			method: 'GET',
 			url: apiUrl + '/Visits'
 		}).then(function(response) {
-			$scope.visits = response.data;
+			$scope.users = response.data;
 		}, function(err) {
 			console.log(err);
 		})	
