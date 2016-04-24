@@ -57,7 +57,7 @@ angular.module('myApp.services', [])
 		} else if( currentUser.role === 'patient' ) {
 			switch( action ) {
 				case 'add-visit':
-				case 'show-visit':
+				case 'show-visit-patient':
 					return true;
 				default:
 					return false;
@@ -65,7 +65,7 @@ angular.module('myApp.services', [])
 		} else if( currentUser.role === 'doctor' ) {
 			switch( action ) {
 				case 'edit-visit':
-				case 'show-visit':
+				case 'show-visit-doctor':
 				case 'add-commission':
 				case 'edit-commission':
 				case 'show-commission':
@@ -79,6 +79,9 @@ angular.module('myApp.services', [])
 				case 'edit-doctor':
 				case 'show-doctor':
 				case 'show-today':
+				case 'add-act':
+				case 'edit-act':
+				case 'delete-act':
 					//console.log( "Access doctor ", true);
 					return true;
 				default:

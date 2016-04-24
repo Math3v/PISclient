@@ -3,8 +3,17 @@
 angular.module('myApp.visits', [])
 
 .config(['$routeProvider',function($routeProvider) {
-	$routeProvider.when('/visits', {
+	$routeProvider.when('/visits-doctor', {
 		templateUrl: 'visits/visits.html',
+		controller: 'crudController',
+		resolve: {
+			url: function(){ return '/Visits'; },
+			obj: function(){ return 'visit'; },
+			currentUser: function(currentUserService){ return currentUserService.getUser(); }
+		}
+	});
+	$routeProvider.when('/visits-patient', {
+		templateUrl: 'visits/visits_patient.html',
 		controller: 'crudController',
 		resolve: {
 			url: function(){ return '/Visits'; },
@@ -14,7 +23,7 @@ angular.module('myApp.visits', [])
 	});
 }])
 
-.controller('visitsController', ['$scope', 'apiUrl', '$http', function($scope, apiUrl, $http){
+.controller('visitsController', ['$scope', 'apiUrl', '$http', 'currentUserService', function($scope, apiUrl, $http, currentUserService){
 	
 	$scope.showNewModal = function() {
 		$scope.visit = {};
@@ -28,7 +37,7 @@ angular.module('myApp.visits', [])
 
 	$scope.newVisit = function(visit) {
 		visit.status = 'new';
-		console.log(visit);
+		visit.patient_id = currentUserService.getUser().id;
 		$http({
 			method: 'POST',
 			url: apiUrl + '/Visits',

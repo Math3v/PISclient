@@ -103,6 +103,36 @@ angular.module('myApp.users', ['ngRoute'])
     $( "#newCommission" ).modal('show');
   }
 
+  $scope.newActModal = function(examination) {
+    $scope.act = {};
+    $scope.act.examination_id = examination.id;
+    $( "#newAct" ).modal('show');
+  }
+
+  $scope.newAct = function(examination) {
+    console.log( "New act ", $scope.act );
+    $http({
+      method: 'POST',
+      url: apiUrl + '/Acts',
+      data: $scope.act
+    }).then(function(response) {
+      $scope.init();
+    }, function(response) {
+      console.log( "Error ", response );
+    });
+  }
+
+  $scope.deleteAct = function(act) {
+    $http({
+      method: 'DELETE',
+      url: apiUrl + '/Acts/' + act.id
+    }).then(function(response) {
+      $scope.init();
+    }, function(response) {
+      console.log( "Error ", response );
+    })
+  }
+
   $scope.newObject = function(obj, url) {
     obj.patient_id = $scope.user.id;
     obj.doctor_id = currentUserService.getUser().id;
@@ -166,6 +196,10 @@ angular.module('myApp.users', ['ngRoute'])
     $scope.showNewModal = function() {
       $scope.patient = {};
       $( "#newPatient" ).modal('show');
+    }
+
+    $scope.goToPatient = function(patient) {
+      window.location.assign( '/app/?#/patient/' + patient.id );
     }
 
 }]);

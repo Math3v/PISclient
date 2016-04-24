@@ -1,4 +1,4 @@
-<h1>Patients</h1>
+<!--h1>Patients</h1>
 <ul>
 	<li ng-repeat="user in users | filter: {role: 'patient'}">
 		<user user="user" 
@@ -8,7 +8,7 @@
 			delete-object="deleteObject(user)"></user>
 	</li>
 	<button access="{{'add-'+obj}}" ng-click="newObject({role: 'patient'})">New patient</button>
-</ul>
+</ul-->
 
 <div class="container-fluid" ng-controller="patientsController">
   <div class="panel panel-default">
@@ -51,7 +51,7 @@
             {{patient.address}}
           </td>
           <td class="col-md-1">
-            <button class="btn btn-info btn-sm" ng-click="">Patient card</button>
+            <button class="btn btn-info btn-sm" ng-click="goToPatient(patient)">Patient card</button>
           </td>
           <td class="col-md-1">
             <button class="btn btn-default btn-sm" ng-click="showEditModal(patient)" access="{{'edit-'+obj}}">Edit</button>

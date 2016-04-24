@@ -28,7 +28,8 @@ angular.module('myApp.today', ['ngRoute'])
     if( mm < 10 ){
         mm = '0' + mm;
     } 
-    $scope.today = yyyy+'-'+mm+'-'+dd;
+    $scope.today = mm+'/'+dd+'/'+yyyy;
+    console.log( $scope.today );
 
     $http({
       method: 'GET',

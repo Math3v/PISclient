@@ -54,22 +54,22 @@
             <div class="table-responsive">
               <table class="table" >
                 <tr>
-                  <td class="col-md-2">
+                  <td class="col-md-3">
                     {{examination.date}}
                   </td>
                   <td class="col-md-3">
                     {{examination.description}}
                   </td>
                   <td class="col-md-1">
-                    <button class="btn btn-success btn-sm" access="'add-act'" ng-click="" ng-hide="">
-                      <span class="glyphicon glyphicon-plus" aria-hidden="true" access="{{'add-'+obj}}"></span> Add act
+                    <button class="btn btn-success btn-sm" access="add-act" ng-click="newActModal(examination)">
+                      <span class="glyphicon glyphicon-plus" aria-hidden="true" access="add-act"></span> Add act
                     </button>
                   </td>
                   <td class="col-md-1">
-                    <button class="btn btn-default btn-sm" access="'edit-examination'" ng-click="showExaminationEdit(examination)" ng-hide="examination.edit">Show detail</button>
+                    <button class="btn btn-default btn-sm" access="edit-examination" ng-click="showExaminationEdit(examination)" ng-hide="examination.edit">Show detail</button>
                   </td>
                   <td>
-                    <button class="btn btn-danger btn-sm" ng-click="deleteObject(examination)" access="{{'delete-'+obj}}">Delete</button>
+                    <button class="btn btn-danger btn-sm" ng-click="deleteObject(examination, '/Examinations')" access="delete-examination">Delete</button>
                   </td>
                 </tr>
                 <tr ng-repeat="act in acts | filter:{examination_id: examination.id}"><!-- This have to be done for all ACTS on this examination -->
@@ -80,7 +80,7 @@
                   </td>
                   <td></td>
                   <td></td>
-                  <td></td>
+                  <td><button class="btn btn-danger btn-sm" access="delete-act" ng-click="deleteAct(act)">Delete</button></td>
                 </tr>
               </table>
             </div>
@@ -94,7 +94,7 @@
     <div class="panel-heading">
       <h4 class="pull-left">Commissons</h4>
       <button class="btn btn-success pull-right" aria-label="New commission" ng-click="newCommissionModal()">
-        <span class="glyphicon glyphicon-plus" aria-hidden="true" access="{{'add-'+obj}}"></span> New Commission
+        <span class="glyphicon glyphicon-plus" aria-hidden="true" access="add-commission"></span> New Commission
       </button>
       <div class="clearfix"></div>
     </div>
@@ -132,10 +132,10 @@
             {{commision.laboratory}}
           </td>
           <td class="col-md-2">
-            <button class="btn btn-default btn-sm" access="'edit-commission'" ng-click="showCommissionEdit(commision)">Show detail</button>
+            <button class="btn btn-default btn-sm" access="edit-commission" ng-click="showCommissionEdit(commision)">Show detail</button>
           </td>
           <td class="col-md-2">
-            <button class="btn btn-danger btn-sm" ng-click="deleteObject(commision)" access="{{'delete-'+obj}}">Delete</button>
+            <button class="btn btn-danger btn-sm" ng-click="deleteObject(commision, '/Commissions')" access="delete-commission">Delete</button>
           </td>
         </tr>
       </table>
@@ -170,7 +170,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" ng-click="editObject(examination)" ng-disabled="form.$invalid">Save changes</button>
+          <button type="button" class="btn btn-primary" ng-click="editObject(examination, '/Examinations')" ng-disabled="form.$invalid">Save changes</button>
         </div>
       </div>
     </div>
@@ -202,7 +202,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" ng-click="modalNewObject(examination)">Add</button>
+          <button type="button" class="btn btn-primary" ng-click="newObject(examination, '/Examinations')">Add</button>
         </div>
       </div>
     </div>
@@ -235,14 +235,14 @@
         <div class="modal-body">
           <form role="form" data-toggle="validator">
             <div class="form-group has-feedback">
-              <label for="description">Description</label>
-              <textarea rows="5" type="text" class="form-control" id="description" placeholder="Description" ng-model="act.description" required></textarea>
+              <label for="note">note</label>
+              <textarea rows="5" type="text" class="form-control" id="note" placeholder="Description" ng-model="act.note" required></textarea>
             </div>
           </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" ng-click="">Add</button>
+          <button type="button" class="btn btn-primary" ng-click="newAct()">Add</button>
         </div>
       </div>
     </div>
@@ -282,7 +282,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" ng-click="editObject(commision)" ng-disabled="form.$invalid">Save changes</button>
+          <button type="button" class="btn btn-primary" ng-click="editObject(commission, '/Commissions')" ng-disabled="form.$invalid">Save changes</button>
         </div>
       </div>
     </div>
@@ -322,7 +322,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" ng-click="modalNewObject(commission)">Add</button>
+          <button type="button" class="btn btn-primary" ng-click="newObject(commission, '/Commissions')">Add</button>
         </div>
       </div>
     </div>

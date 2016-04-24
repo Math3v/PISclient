@@ -29,7 +29,7 @@ angular.module('myApp', [
 
 .run(['$rootScope', 'currentUserService', '$location', 'Idle', function($rootScope, currentUserService, $location, Idle){
 
-  Idle.watch();
+  //Idle.watch();
 
 	$rootScope.$on('$routeChangeStart', function(evnt, next) {
 		console.log( "Next ", next );
