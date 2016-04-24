@@ -23,12 +23,14 @@ angular.module('myApp.login', ['ngRoute'])
 		$http({
 			method: 'GET',
 			url: apiUrl+'/APIUsers/findOne',
-			params: {filter:{"where":{"name": $scope.username }}}
+			params: {filter:{"where":{"name": $scope.username, "password": $scope.password }}}
 		}).then(function(response) {
+			delete $scope.loginErrorMessage;
 			currentUserService.setUser(response.data);
-			$location.path( '/visits' );
+			window.location.assign( '/app/?#/visits' );
 			console.log(response);
 		}, function(response) {
+			$scope.loginErrorMessage = "Invalid username or password";
 			console.log(response);
 		})
 	}

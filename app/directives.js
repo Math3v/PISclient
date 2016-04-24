@@ -22,7 +22,7 @@ angular.module('myApp.directives', [])
 		restrict: 'A',
 		link: function($scope, iElm, iAttrs, controller) {
 			var toggleVisibility = function() {
-				console.log( "Toggle ", iAttrs.access );
+				//console.log( "Toggle ", iAttrs.access );
 				if( permissionService.canAccess( iAttrs.access ) === true ) {
 					iElm.removeClass('hidden');
 				} else {

@@ -29,10 +29,18 @@ angular.module('myApp.services', [])
 		$rootScope.$broadcast( 'permissionsChanged' );
 	}
 
+	function hasUser() {
+		if( undefined === getUser() ) {
+			return false;
+		}
+		return true;
+	}
+
 	return {
 		setUser: setUser,
 		getUser: getUser,
-		delUser: delUser	
+		delUser: delUser,
+		hasUser: hasUser	
 	};
 }])
 
@@ -43,7 +51,7 @@ angular.module('myApp.services', [])
 		if( !!currentUser === false || currentUser.hasOwnProperty('role') === false ) {
 			return false;
 		}
-		console.log( "Can access", action, currentUser);
+		//console.log( "Can access", action, currentUser);
 		if( currentUser.role === 'admin') {
 			return true;
 		} else if( currentUser.role === 'patient' ) {
@@ -71,10 +79,10 @@ angular.module('myApp.services', [])
 				case 'edit-doctor':
 				case 'show-doctor':
 				case 'show-today':
-					console.log( "Access doctor ", true);
+					//console.log( "Access doctor ", true);
 					return true;
 				default:
-					console.log( "Access doctor ", false);
+					//console.log( "Access doctor ", false);
 					return false;
 			}
 		} else {

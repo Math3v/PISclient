@@ -61,9 +61,9 @@
             <li access="show-today"><a href="#/today">Today</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><p class="navbar-text">Logged as: {{ currentUser.name }}-{{ currentUser.role }}</p></li>
-            <li><button type="button" class="btn btn-default navbar-btn"><a href="#/logout" ng-click="logout()">Log Out</a></button></li>
-            <li><button type="button" class="btn btn-default navbar-btn"><a href="#/login">Log In</a></button></li>
+            <li ng-show="hasUser()"><p class="navbar-text">Logged as: {{ currentUser.name }}-{{ currentUser.role }}</p></li>
+            <li ng-show="hasUser()"><button type="button" class="btn btn-default navbar-btn"><a href="#/logout" ng-click="logout()">Log Out</a></button></li>
+            <li ng-hide="hasUser()"><button type="button" class="btn btn-default navbar-btn"><a href="#/login">Log In</a></button></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->

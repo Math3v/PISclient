@@ -18,9 +18,9 @@ angular.module('myApp', [
  ])
 
 .config(['$routeProvider', 'IdleProvider', 'KeepaliveProvider', function($routeProvider, IdleProvider, KeepaliveProvider) {
-  IdleProvider.idle(60); // 1 minute idle
-  IdleProvider.timeout(30); // after 30 seconds idle, time the user out
-  KeepaliveProvider.interval(60); // 1 minute keep-alive ping
+  IdleProvider.idle(30); // 1 minute idle
+  IdleProvider.timeout(15); // after 30 seconds idle, time the user out
+  KeepaliveProvider.interval(30); // 1 minute keep-alive ping
 
   $routeProvider.otherwise({redirectTo: '/login'});
 }])
@@ -29,7 +29,7 @@ angular.module('myApp', [
 
 .run(['$rootScope', 'currentUserService', '$location', 'Idle', function($rootScope, currentUserService, $location, Idle){
 
-  //Idle.watch();
+  Idle.watch();
 
 	$rootScope.$on('$routeChangeStart', function(evnt, next) {
 		console.log( "Next ", next );
@@ -56,6 +56,8 @@ angular.module('myApp', [
 
 .controller('indexController', ['currentUserService', '$scope', '$location', 'Idle', function(currentUserService, $scope, $location, Idle){
 
+  console.log( "Index Controller" );
+
   $scope.$on('IdleTimeout', function() {
     console.log( "IdleTimeout" );
     $scope.logout();
@@ -81,7 +83,12 @@ angular.module('myApp', [
 
   $scope.logout = function() {
     currentUserService.delUser();
+    $scope.hasUser();
     console.log( "Change to login" );
-    $location.path( '/login' );
+    window.location.assign( '/app/?#/login' );
+  }
+
+  $scope.hasUser = function() {
+    return currentUserService.hasUser();
   }
 }]);
