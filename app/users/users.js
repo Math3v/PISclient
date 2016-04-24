@@ -202,4 +202,18 @@ angular.module('myApp.users', ['ngRoute'])
       window.location.assign( '/app/?#/patient/' + patient.id );
     }
 
+}])
+
+.controller('doctorsController', ['$scope', '$http', 'apiUrl', function($scope, $http, apiUrl){
+
+  $scope.showEditModal = function(doctor) {
+    $scope.doctor = doctor;
+    $( "#editDoctor" ).modal('show');
+  }
+
+  $scope.showNewModal = function() {
+    $scope.doctor = {};
+    $( "#newDoctor" ).modal('show');
+  }
+  
 }]);
