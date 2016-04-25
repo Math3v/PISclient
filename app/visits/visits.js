@@ -23,7 +23,7 @@ angular.module('myApp.visits', [])
 	});
 }])
 
-.controller('visitsController', ['$scope', 'apiUrl', '$http', 'currentUserService', function($scope, apiUrl, $http, currentUserService){
+.controller('visitsController', ['$scope', 'apiUrl', '$http', 'currentUserService', 'crudUserService', function($scope, apiUrl, $http, currentUserService, crudUserService){
 	
 	$scope.showNewModal = function() {
 		$scope.visit = {};
@@ -60,4 +60,13 @@ angular.module('myApp.visits', [])
 			console.log(err);
 		})	
 	}
+
+	crudUserService.all().then(function(users) {
+		for( var i = 0; i < users.length; i++ ) {
+			var user = users[i];
+			$scope.allUsers[user.id] = user;
+		}
+	}, function(err) {
+		console.log( "Error: ", err );
+	})
 }])

@@ -8,7 +8,7 @@ Kdyz nejakou polozku edituju v modalnim okne, meni se ta konkretni polozka primo
 
 Pri mazani nejakych polozek by melo na 100% vyskocit modalni okno s otazkou Ano-Ne, jinak muzes omylem smazat cokoliv a ani nebudes vedet co to bylo.
 
-Ve visits by bylo dobre kdyby bylo zobrazeno jmeno pacienta misto cisla.
+~~Ve visits by bylo dobre kdyby bylo zobrazeno jmeno pacienta misto cisla.~~
 
 ~~V Today zobrazovat jenom Visits se statusem confirmed.~~
 
