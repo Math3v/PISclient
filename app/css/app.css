@@ -32,3 +32,12 @@
 .hidden {
   display: none;
 }
+
+label {
+  font-weight: normal !important;
+}
+
+input.ng-invalid {
+  background: red;
+  color: white;
+}

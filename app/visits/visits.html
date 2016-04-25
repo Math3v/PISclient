@@ -115,12 +115,12 @@
         <div class="modal-body">
           <form role="form" data-toggle="validator">
             <div class="form-group date">
-              <label for="date">Date</label>
-              <input type="text" data-provide="datepicker" data-date-format="dd.mm.yyyy" class="form-control" id="date" placeholder="12.04.2016" ng-model="visit.date" required>
+              <label for="date"><b>Date</b></label>
+              <input type="text" data-provide="datepicker" data-date-format="dd.mm.yyyy" class="form-control" id="date" placeholder="12.04.2016" ng-model="visit.date" required pattern="\d{1,2}\.\d{1,2}\.\d{4}">
             </div>
             <div class="form-group has-feedback">
-              <label for="time">Time</label>
-              <input type="text" class="form-control" id="time" placeholder="12:00" ng-model="visit.time" required>
+              <label for="time"><b>Time</b></label>
+              <input type="text" class="form-control" id="time" placeholder="12:00" ng-model="visit.time" required pattern="\d{2}:\d{2}">
             </div>
             <div class="form-group has-feedback">
               <label for="status">Status</label>
@@ -129,7 +129,7 @@
                 <option style="background-image: url('/img/waiting.png');" value="new"> unconfirmed</option>
               </select>
             </div>
-            <label for="sel_patient">Patient:</label>
+            <label for="sel_patient"><b>Patient:</b></label>
             <select name="visitPatient" ng-model="visit.patient_id" class="form-control" id="sel_patient">
                 <option ng-repeat="user in allUsers | filter:{role: 'patient'}" ng-selected="visit.patient_id == user.id ? true : false" value="{{user.id}}">{{user.name}}</option>
             </select>
@@ -154,14 +154,14 @@
         <div class="modal-body">
           <form role="form" data-toggle="validator">
             <div class="form-group date has-feedback">
-              <label for="date" class="control-label">Date</label>
-              <input type="text" ng-model="visit.date" data-provide="datepicker" data-date-format="dd.mm.yyyy" class="form-control" id="date" placeholder="12.04.2016" required>
+              <label for="date" class="control-label"><b>Date</b></label>
+              <input type="text" ng-model="visit.date" data-provide="datepicker" data-date-format="dd.mm.yyyy" class="form-control" id="date" placeholder="12.04.2016" required pattern="\d{1,2}\.\d{1,2}\.\d{4}">
             </div>
             <div class="form-group has-feedback">
-              <label for="time">Time</label>
-               <input type="text" class="form-control" id="time" placeholder="12:00" ng-model="visit.time" required>
+              <label for="time"><b>Time</b></label>
+               <input type="text" class="form-control" id="time" placeholder="12:00" ng-model="visit.time" required pattern="\d{2}:\d{2}">
             </div>
-            <label for="sel_patient">Patient:</label>
+            <label for="sel_patient"><b>Patient:</b></label>
             <select name="visitPatient" ng-model="visit.patient_id" class="form-control" id="sel_patient" has-feedback>
                 <option ng-repeat="user in allUsers | filter:{role: 'patient'}" ng-selected="visit.patient_id == user.id ? true : false" value="{{user.id}}">{{user.name}}</option>
             </select>

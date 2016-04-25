@@ -155,12 +155,12 @@
         <div class="modal-body">
           <form role="form" data-toggle="validator">
             <div class="form-group has-feedback">
-              <label for="description">Description</label>
+              <label for="description"><b>Description</b></label>
               <textarea rows="5" type="text" class="form-control" id="description" placeholder="Trhani zubu, preventivni prohlidka..." ng-model="examination.description" required></textarea>
             </div>
             <div class="form-group date has-feedback">
-              <label for="date">Date</label>
-              <input type="text" data-provide="datepicker" data-date-format="dd.mm.yyyy" class="form-control" id="date" placeholder="19.04.2016" ng-model="examination.date" required>
+              <label for="date"><b>Date</b></label>
+              <input type="text" data-provide="datepicker" data-date-format="dd.mm.yyyy" class="form-control" id="date" placeholder="19.04.2016" ng-model="examination.date" required pattern="\d{1,2}\.\d{1,2}\.\d{4}">
             </div>
             <div class="form-group">
               <label for="recipe">Recipe</label>
@@ -187,12 +187,12 @@
         <div class="modal-body">
           <form role="form" data-toggle="validator">
             <div class="form-group has-feedback">
-              <label for="description">Description</label>
+              <label for="description"><b>Description</b></label>
               <textarea rows="5" type="text" class="form-control" id="description" placeholder="Trhani zubu, preventivni prohlidka..." ng-model="examination.description" required></textarea>
             </div> 
             <div class="form-group date has-feedback">
-              <label for="date">Date</label>
-              <input type="text" data-provide="datepicker" data-date-format="dd.mm.yyyy" class="form-control" id="date" placeholder="19.04.2016" ng-model="examination.date" required>
+              <label for="date"><b>Date</b></label>
+              <input type="text" data-provide="datepicker" data-date-format="dd.mm.yyyy" class="form-control" id="date" placeholder="19.04.2016" ng-model="examination.date" required pattern="\d{1,2}\.\d{1,2}\.\d{4}">
             </div>
             <div class="form-group">
               <label for="recipe">Recipe</label>
@@ -235,7 +235,7 @@
         <div class="modal-body">
           <form role="form" data-toggle="validator">
             <div class="form-group has-feedback">
-              <label for="note">note</label>
+              <label for="note"><b>Note</b></label>
               <textarea rows="5" type="text" class="form-control" id="note" placeholder="Trhani osmicky vlevo dole, cisteni kanalku ..." ng-model="act.note" required></textarea>
             </div>
           </form>
@@ -259,7 +259,7 @@
         <div class="modal-body">
           <form role="form" data-toggle="validator">
             <div class="form-group has-feedback">
-              <label for="name">Name</label>
+              <label for="name"><b>Name</b></label>
               <input type="text" class="form-control" id="name" placeholder="Vyroba rovnatek, protezy ..." ng-model="commission.name" required>
             </div>
             <div class="form-group">
@@ -271,12 +271,12 @@
               <input type="text" class="form-control" id="note" placeholder="Note" ng-model="commission.note">
             </div>
             <div class="form-group has-feedback">
-              <label for="laboratory">Laboratory</label>
+              <label for="laboratory"><b>Laboratory</b></label>
               <input type="text" class="form-control" id="laboratory" placeholder="Podlesi V 5224, Zlin" ng-model="commission.laboratory" required>
             </div>
             <div class="form-group date">
-              <label for="date">Date</label>
-              <input type="text" data-provide="datepicker" class="form-control" id="date" placeholder="04/19/2016" ng-model="commission.date" required>
+              <label for="date"><b>Date</b></label>
+              <input type="text" data-provide="datepicker" data-date-format="dd.mm.yyyy" class="form-control" id="date" placeholder="24.12.2016" ng-model="commission.date" required pattern="\d{1,2}\.\d{1,2}\.\d{4}">
             </div>
           </form>
         </div>
@@ -299,7 +299,7 @@
         <div class="modal-body">
           <form role="form" data-toggle="validator">
             <div class="form-group has-feedback">
-              <label for="name">Name</label>
+              <label for="name"><b>Name</b></label>
               <input type="text" ng-model="commission.name" class="form-control" id="name" placeholder="Vyroba rovnatek, protezy ..." required>
             </div>
             <div class="form-group">
@@ -311,12 +311,12 @@
               <input type="text" ng-model="commission.note" class="form-control" id="note" placeholder="Note">
             </div>
             <div class="form-group has-feedback">
-              <label for="laboratory">Laboratory</label>
+              <label for="laboratory"><b>Laboratory</b></label>
               <input type="text" ng-model="commission.laboratory" class="form-control" id="laboratory" placeholder="Podlesi V. 5224, Zlin" required>
             </div>
             <div class="form-group date">
-              <label for="date">Date</label>
-              <input type="text" ng-model="commission.date" data-provide="datepicker" class="form-control" id="date" placeholder="04/19/2016" required>
+              <label for="date"><b>Date</b></label>
+              <input type="text" ng-model="commission.date" data-provide="datepicker" data-date-format="dd.mm.yyyy" class="form-control" id="date" placeholder="24.12.2016" required pattern="\d{1,2}\.\d{1,2}\.\d{4}">
             </div>
           </form>
         </div>
