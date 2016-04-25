@@ -10,7 +10,7 @@ Pri mazani nejakych polozek by melo na 100% vyskocit modalni okno s otazkou Ano-
 
 Ve visits by bylo dobre kdyby bylo zobrazeno jmeno pacienta misto cisla.
 
-V Today zobrazovat jenom Visits se statusem confirmed.
+~~V Today zobrazovat jenom Visits se statusem confirmed.~~
 
 
 ## Michal

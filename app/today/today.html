@@ -19,7 +19,7 @@
             User
           </th>
         </tr>
-        <tr ng-repeat="visit in visits | filter:{date: today}">
+        <tr ng-repeat="visit in visits | filter:{date: today, status: 'confirmed'}">
           <td class="col-md-2">
             {{visit.date}}
           </td>
@@ -27,7 +27,9 @@
             {{visit.time}}
           </td>
           <td class="col-md-2">
-            {{visit.status}}
+            {{visit.status}}&nbsp;&nbsp;&nbsp;
+            <img ng-show="visit.status == 'new'" src="img/waiting.png" width="40" height="40"/>
+            <img ng-show="visit.status == 'confirmed'" src="img/accept.png" width="40" height="40"/>
           </td>
           <td class="col-md-2">
             <a href="/app/?#/patient/{{visit.patient_id}}">
