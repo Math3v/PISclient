@@ -4,7 +4,7 @@
 -----------------
 Pri pridavani libovolne nove polozky, nebo pri editovani stavajici polozky by bylo dobre zavrit aktualne otevrene modalni okno po kliknuti na Save.
 
-Kdyz nejakou polozku edituju v modalnim okne, meni se ta konkretni polozka primo i na obrazovce v pozadi, problem je ze kdyz potom zmacknu Close misto Save, zmeny se nezrusi, ale zustanou.
+~~Kdyz nejakou polozku edituju v modalnim okne, meni se ta konkretni polozka primo i na obrazovce v pozadi, problem je ze kdyz potom zmacknu Close misto Save, zmeny se nezrusi, ale zustanou.~~
 
 Pri mazani nejakych polozek by melo na 100% vyskocit modalni okno s otazkou Ano-Ne, jinak muzes omylem smazat cokoliv a ani nebudes vedet co to bylo.
 

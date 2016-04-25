@@ -174,12 +174,12 @@ angular.module('myApp.users', ['ngRoute'])
   }
 
   $scope.showExaminationEdit = function(examination) {
-    $scope.examination = examination;
+    $scope.examination = angular.copy( examination );
     $( "#editExamination" ).modal('show');
   }
 
   $scope.showCommissionEdit = function(commission) {
-    $scope.commission = commission;
+    $scope.commission = angular.copy( commission );
     console.log( $scope.commission );
     $( "#editCommission" ).modal('show');
   }
@@ -189,7 +189,7 @@ angular.module('myApp.users', ['ngRoute'])
 .controller('patientsController', ['$scope', '$http', 'apiUrl', function($scope, $http, apiUrl){
   
     $scope.showEditModal = function(patient) {
-      $scope.patient = patient;
+      $scope.patient = angular.copy( patient );
       $( "#editPatient" ).modal('show');
     }
 
@@ -207,7 +207,7 @@ angular.module('myApp.users', ['ngRoute'])
 .controller('doctorsController', ['$scope', '$http', 'apiUrl', function($scope, $http, apiUrl){
 
   $scope.showEditModal = function(doctor) {
-    $scope.doctor = doctor;
+    $scope.doctor = angular.copy( doctor );
     $( "#editDoctor" ).modal('show');
   }
 

@@ -31,7 +31,7 @@ angular.module('myApp.visits', [])
 	}
 
 	$scope.showEditModal = function(visit) {
-		$scope.visit = visit;
+		$scope.visit = angular.copy( visit );
 		$( "#editVisit" ).modal('show');
 	}
 
