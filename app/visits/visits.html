@@ -116,7 +116,7 @@
           <form role="form" data-toggle="validator">
             <div class="form-group date">
               <label for="date">Date</label>
-              <input type="text" data-provide="datepicker" class="form-control" id="date" placeholder="04/19/2016" ng-model="visit.date" required>
+              <input type="text" data-provide="datepicker" data-date-format="dd.mm.yyyy" class="form-control" id="date" placeholder="12.04.2016" ng-model="visit.date" required>
             </div>
             <div class="form-group has-feedback">
               <label for="time">Time</label>
@@ -155,7 +155,7 @@
           <form role="form" data-toggle="validator">
             <div class="form-group date has-feedback">
               <label for="date" class="control-label">Date</label>
-              <input type="text" ng-model="visit.date" data-provide="datepicker" class="form-control" id="date" placeholder="04/19/2016" required>
+              <input type="text" ng-model="visit.date" data-provide="datepicker" data-date-format="dd.mm.yyyy" class="form-control" id="date" placeholder="12.04.2016" required>
             </div>
             <div class="form-group has-feedback">
               <label for="time">Time</label>
