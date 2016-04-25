@@ -30,11 +30,11 @@ Patient visits: zmenit stav z new na unconfirmed.
 
 ## Tom
 ----------------
-Commision by melo mit nejspis take vazbu na konkretniho pacienta.
+~~Commision by melo mit nejspis take vazbu na konkretniho pacienta.~~
 
-U formularu by bylo dobre, kdyby byly povinne pole nejakym zpusobem zdurazneny i pro uzivatele (muzeme doladit spolu jak zvyraznene).
+~~U formularu by bylo dobre, kdyby byly povinne pole nejakym zpusobem zdurazneny i pro uzivatele (muzeme doladit spolu jak zvyraznene).~~
 
-Chtelo by to sjednotit format datumu, do formularu doplnovat automaticky aktualni datum (asi bude chtit poresit s Matejem).
+~~Chtelo by to sjednotit format datumu,~~ do formularu doplnovat automaticky aktualni datum (asi bude chtit poresit s Matejem).
 
 Zkontrolovat zadani, abychom vedeli co nam jeste chybi.
 
