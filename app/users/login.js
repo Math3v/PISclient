@@ -27,8 +27,15 @@ angular.module('myApp.login', ['ngRoute'])
 		}).then(function(response) {
 			delete $scope.loginErrorMessage;
 			currentUserService.setUser(response.data);
-			window.location.assign( '/app/?#/visits' );
-			console.log(response);
+			console.log( "Window location assign" );
+			var role = currentUserService.getUser().role;
+			var url;
+			if( role === 'patient' ) {
+				url = '/app/?#/visits-patient';
+			} else {
+				url = '/app/?#/visits-doctor';
+			}
+			window.location.assign( url );
 		}, function(response) {
 			$scope.loginErrorMessage = "Invalid username or password";
 			console.log(response);

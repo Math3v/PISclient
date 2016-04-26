@@ -95,7 +95,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" ng-click="editObject(doctor)" ng-disabled="form.$invalid">Save changes</button>
+          <button type="button" class="btn btn-primary" ng-click="editObject(doctor)" data-dismiss="modal" ng-disabled="form.$invalid">Save changes</button>
         </div>
       </div>
     </div>
@@ -131,7 +131,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" ng-click="modalNewObject(doctor, {role: 'doctor'})">Add</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="modalNewObject(doctor, {role: 'doctor'})">Add</button>
         </div>
       </div>
     </div>
