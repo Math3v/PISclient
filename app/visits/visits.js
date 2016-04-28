@@ -36,7 +36,7 @@ angular.module('myApp.visits', [])
 	}
 
 	$scope.newVisit = function(visit) {
-		visit.status = 'new';
+		visit.status = 'unconfirmed';
 		visit.patient_id = currentUserService.getUser().id;
 		$http({
 			method: 'POST',
