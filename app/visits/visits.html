@@ -113,7 +113,7 @@
           <h4 class="modal-title" id="myModalLabel">Edit Visit</h4>
         </div>
         <div class="modal-body">
-          <form role="form" data-toggle="validator">
+          <form role="form" data-toggle="validator" name="visit">
             <div class="form-group date">
               <label for="date"><b>Date</b></label>
               <input type="text" data-provide="datepicker" data-date-format="dd.mm.yyyy" class="form-control" id="date" placeholder="12.04.2016" ng-model="visit.date" required pattern="\d{1,2}\.\d{1,2}\.\d{4}">
@@ -152,7 +152,7 @@
           <h4 class="modal-title" id="myModalLabel">New Visit</h4>
         </div>
         <div class="modal-body">
-          <form role="form" data-toggle="validator">
+          <form role="form" data-toggle="validator" name="visit">
             <div class="form-group date has-feedback">
               <label for="date" class="control-label"><b>Date</b></label>
               <input type="text" ng-model="visit.date" data-provide="datepicker" data-date-format="dd.mm.yyyy" class="form-control" id="date" placeholder="12.04.2016" required pattern="\d{1,2}\.\d{1,2}\.\d{4}">
