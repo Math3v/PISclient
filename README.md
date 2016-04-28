@@ -16,9 +16,9 @@ Validace formularu sice ukaze uzivateli co zadal spatne, ale nezabrani mu to pri
 
 Dej mi prosim vedet, jestli kdyz vytvorim modalni okno pro prihlaseni, tak jestli by pro tebe byl problem do nej prenest tu funkcnost.
 
-Ve visits_patients.html je v jako jedinem souboru u nepotvrzene objednavky napsano "new" misto "unconfirmed" a taky se na teto strance nezavre modalni okno po kliknuti na Add
+~~Ve visits_patients.html je v jako jedinem souboru u nepotvrzene objednavky napsano "new" misto "unconfirmed" a taky se na teto strance nezavre modalni okno po kliknuti na Add~~
 
-Integrovat main-page.html jako stranku, ktera se zobrazi jako index misto prihlasovaciho formulare
+~~Integrovat main-page.html jako stranku, ktera se zobrazi jako index misto prihlasovaciho formulare~~
 
 ## Michal
 -----------------
