@@ -74,7 +74,7 @@
           <h4 class="modal-title" id="myModalLabel">Edit Admin</h4>
         </div>
         <div class="modal-body">
-          <form name="form">
+          <form role="form" data-toggle="validator">
             <div class="form-group">
               <label for="name"><b>Name</b></label>
               <input type="text" class="form-control" id="name" placeholder="Frantisek Minarik" ng-model="admin.name" required>
@@ -110,7 +110,7 @@
           <h4 class="modal-title" id="myModalLabel">New Admin</h4>
         </div>
         <div class="modal-body">
-          <form>
+          <form role="form" data-toggle="validator">
             <div class="form-group">
               <label for="name"><b>Name</b></label>
               <input type="text" class="form-control" id="name" placeholder="Frantisek Minarik" ng-model="admin.name" required>
@@ -131,7 +131,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" ng-click="modalNewObject(admin)">Add</button>
+          <button type="button" class="btn btn-primary" ng-click="modalNewObject(admin)" ng-disabled="form.$invalid">Add</button>
         </div>
       </div>
     </div>

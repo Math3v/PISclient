@@ -79,7 +79,7 @@
           <h4 class="modal-title" id="myModalLabel">Edit Patient</h4>
         </div>
         <div class="modal-body">
-          <form name="form">
+          <form role="form" data-toggle="validator">
             <div class="form-group">
               <label for="name"><b>Name</b></label>
               <input type="text" class="form-control" id="name" placeholder="Jan Malanik" ng-model="patient.name" required>
@@ -115,7 +115,7 @@
           <h4 class="modal-title" id="myModalLabel">New Patient</h4>
         </div>
         <div class="modal-body">
-          <form>
+          <form role="form" data-toggle="validator">
             <div class="form-group">
               <label for="name"><b>Name</b></label>
               <input type="text" class="form-control" id="name" placeholder="Jan Malanik" ng-model="patient.name" required>
@@ -136,7 +136,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" data-dismiss="modal" class="btn btn-primary" ng-click="modalNewObject(patient, {role: 'patient'})">Add</button>
+          <button type="button" data-dismiss="modal" class="btn btn-primary" ng-click="modalNewObject(patient, {role: 'patient'})" ng-disabled="form.$invalid">Add</button>
         </div>
       </div>
     </div>
