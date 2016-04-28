@@ -25,7 +25,7 @@
           </td>
           <td class="col-md-1" style="vertical-align:middle;">
             {{visit.status}} &nbsp;&nbsp;&nbsp;
-            <img ng-show="visit.status == 'new'" src="img/waiting.png" width="40" height="40"/>
+            <img ng-show="visit.status == 'unconfirmed'" src="img/waiting.png" width="40" height="40"/>
             <img ng-show="visit.status == 'confirmed'" src="img/accept.png" width="40" height="40"/>
           </td>
         </tr>
@@ -60,7 +60,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" ng-click="newVisit(visit)">Add</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="newVisit(visit)">Add</button>
         </div>
       </div>
     </div>

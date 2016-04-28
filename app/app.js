@@ -22,7 +22,11 @@ angular.module('myApp', [
   IdleProvider.timeout(15); // after 30 seconds idle, time the user out
   KeepaliveProvider.interval(30); // 1 minute keep-alive ping
 
-  $routeProvider.otherwise({redirectTo: '/login'});
+  $routeProvider.when('/', {
+    templateUrl: 'main-page.html'
+  })
+
+  $routeProvider.otherwise({redirectTo: '/'});
 }])
 
 .constant('apiUrl', 'http://localhost:3000/api')
