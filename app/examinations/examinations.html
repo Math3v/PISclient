@@ -60,7 +60,7 @@
           <h4 class="modal-title" id="myModalLabel">Edit Examination</h4>
         </div>
         <div class="modal-body">
-          <form role="form" data-toggle="validator" name="examination">
+          <form role="form" data-toggle="validator" name="Examination">
             <div class="form-group has-feedback">
               <label for="description"><b>Description</b></label>
               <input type="text" class="form-control" id="description" placeholder="Trhani zubu, preventivni prohlidka..." ng-model="examination.description" required>
@@ -81,7 +81,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" ng-click="editObject(examination)" ng-disabled="form.$invalid">Save changes</button>
+          <button type="button" class="btn btn-primary" ng-click="editObject(examination)" ng-disabled="Examination.$invalid">Save changes</button>
         </div>
       </div>
     </div>
@@ -96,7 +96,7 @@
           <h4 class="modal-title" id="myModalLabel">New Examination</h4>
         </div>
         <div class="modal-body">
-          <form role="form" data-toggle="validator" name="examination">
+          <form role="form" data-toggle="validator" name="Examination">
             <div class="form-group has-feedback">
               <label for="description"><b>Description</b></label>
               <input type="text" class="form-control" id="description" placeholder="Trhani zubu, preventivni prohlidka..." ng-model="examination.description" required>
@@ -117,7 +117,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" ng-click="modalNewObject(examination)" ng-disabled="form.$invalid">Add</button>
+          <button type="button" class="btn btn-primary" ng-click="modalNewObject(examination)" ng-disabled="Examination.$invalid">Add</button>
         </div>
       </div>
     </div>

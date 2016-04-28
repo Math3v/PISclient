@@ -153,7 +153,7 @@
           <h4 class="modal-title" id="myModalLabel">Edit Examination</h4>
         </div>
         <div class="modal-body">
-          <form role="form" data-toggle="validator" name="examination">
+          <form role="form" data-toggle="validator" name="Examination">
             <div class="form-group has-feedback">
               <label for="description"><b>Description</b></label>
               <textarea rows="5" type="text" class="form-control" id="description" placeholder="Trhani zubu, preventivni prohlidka..." ng-model="examination.description" required></textarea>
@@ -170,7 +170,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="editObject(examination, '/Examinations')" ng-disabled="form.$invalid">Save changes</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="editObject(examination, '/Examinations')" ng-disabled="Examination.$invalid">Save changes</button>
         </div>
       </div>
     </div>
@@ -185,7 +185,7 @@
           <h4 class="modal-title" id="myModalLabel">New Examination</h4>
         </div>
         <div class="modal-body">
-          <form role="form" data-toggle="validator" name="examination">
+          <form role="form" data-toggle="validator" name="Examination">
             <div class="form-group has-feedback">
               <label for="description"><b>Description</b></label>
               <textarea rows="5" type="text" class="form-control" id="description" placeholder="Trhani zubu, preventivni prohlidka..." ng-model="examination.description" required></textarea>
@@ -202,7 +202,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="newObject(examination, '/Examinations')" ng-disabled="form.$invalid">Add</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="newObject(examination, '/Examinations')" ng-disabled="Examination.$invalid">Add</button>
         </div>
       </div>
     </div>
@@ -233,7 +233,7 @@
           <h4 class="modal-title" id="myModalLabel">New act</h4>
         </div>
         <div class="modal-body">
-          <form role="form" data-toggle="validator" name="act">
+          <form role="form" data-toggle="validator" name="Act">
             <div class="form-group has-feedback">
               <label for="note"><b>Note</b></label>
               <textarea rows="5" type="text" class="form-control" id="note" placeholder="Trhani osmicky vlevo dole, cisteni kanalku ..." ng-model="act.note" required></textarea>
@@ -242,7 +242,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="newAct()" ng-disabled="form.$invalid">Add</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="newAct()" ng-disabled="Act.$invalid">Add</button>
         </div>
       </div>
     </div>
@@ -257,7 +257,7 @@
           <h4 class="modal-title" id="myModalLabel">Edit Commission</h4>
         </div>
         <div class="modal-body">
-          <form role="form" data-toggle="validator" name="commision">
+          <form role="form" data-toggle="validator" name="Commision">
             <div class="form-group has-feedback">
               <label for="name"><b>Name</b></label>
               <input type="text" class="form-control" id="name" placeholder="Vyroba rovnatek, protezy ..." ng-model="commission.name" required>
@@ -282,7 +282,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="editObject(commission, '/Commissions')" ng-disabled="form.$invalid">Save changes</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="editObject(commission, '/Commissions')" ng-disabled="Commision.$invalid">Save changes</button>
         </div>
       </div>
     </div>
@@ -297,7 +297,7 @@
           <h4 class="modal-title" id="myModalLabel">New Commission</h4>
         </div>
         <div class="modal-body">
-          <form role="form" data-toggle="validator" name="commision">
+          <form role="form" data-toggle="validator" name="Commision">
             <div class="form-group has-feedback">
               <label for="name"><b>Name</b></label>
               <input type="text" ng-model="commission.name" class="form-control" id="name" placeholder="Vyroba rovnatek, protezy ..." required>
@@ -322,7 +322,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="newObject(commission, '/Commissions')" ng-disabled="form.$invalid">Add</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="newObject(commission, '/Commissions')" ng-disabled="Commision.$invalid">Add</button>
         </div>
       </div>
     </div>

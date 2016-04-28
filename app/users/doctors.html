@@ -74,7 +74,7 @@
           <h4 class="modal-title" id="myModalLabel">Edit Doctor</h4>
         </div>
         <div class="modal-body">
-          <form role="form" data-toggle="validator" name="doctor">
+          <form role="form" data-toggle="validator" name="Doctor">
             <div class="form-group">
               <label for="name"><b>Name</b></label>
               <input type="text" class="form-control" id="name" placeholder="Milan Lascak" ng-model="doctor.name" required>
@@ -95,7 +95,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" ng-click="editObject(doctor)" data-dismiss="modal" ng-disabled="form.$invalid">Save changes</button>
+          <button type="button" class="btn btn-primary" ng-click="editObject(doctor)" data-dismiss="modal" ng-disabled="Doctor.$invalid">Save changes</button>
         </div>
       </div>
     </div>
@@ -110,7 +110,7 @@
           <h4 class="modal-title" id="myModalLabel">New Doctor</h4>
         </div>
         <div class="modal-body">
-          <form role="form" data-toggle="validator" name="doctor">
+          <form role="form" data-toggle="validator" name="Doctor">
             <div class="form-group">
               <label for="name"><b>Name</b></label>
               <input type="text" class="form-control" id="name" placeholder="Milan Lascak" ng-model="doctor.name" required>
@@ -131,7 +131,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="modalNewObject(doctor, {role: 'doctor'})" ng-disabled="form.$invalid">Add</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="modalNewObject(doctor, {role: 'doctor'})" ng-disabled="Doctor.$invalid">Add</button>
         </div>
       </div>
     </div>
