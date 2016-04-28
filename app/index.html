@@ -18,6 +18,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/css/bootstrap-datepicker.min.css">
   <!-- Select Picker CSS-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css">
+  <!-- Landing page CSS-->
+  <link href="css/landing-page.css" rel="stylesheet">
   <!-- jQuery library -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   <!-- Latest compiled JavaScript -->
@@ -63,8 +65,8 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li ng-show="hasUser()"><p class="navbar-text">Logged as: {{ currentUser.name }}-{{ currentUser.role }}</p></li>
-            <li ng-show="hasUser()"><button type="button" class="btn btn-default navbar-btn"><a href="#/logout" ng-click="logout()">Log Out</a></button></li>
-            <li ng-hide="hasUser()"><button type="button" class="btn btn-default navbar-btn"><a href="#/login">Log In</a></button></li>
+            <li ng-show="hasUser()"><button type="button" class="btn btn-default navbar-btn btn-sm"><a href="#/logout" ng-click="logout()">Log Out</a></button></li>
+            <li ng-hide="hasUser()"><button type="button" class="btn btn-default navbar-btn btn-sm"><a href="#/login">Log In</a></button></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->

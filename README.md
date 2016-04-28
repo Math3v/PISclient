@@ -12,20 +12,27 @@ Pri mazani nejakych polozek by melo na 100% vyskocit modalni okno s otazkou Ano-
 
 ~~V Today zobrazovat jenom Visits se statusem confirmed.~~
 
+Validace formularu sice ukaze uzivateli co zadal spatne, ale nezabrani mu to pridat spatne udaje do databaze, po kliknuti na Save nebo Add se spatna data ulozi.
+
+Dej mi prosim vedet, jestli kdyz vytvorim modalni okno pro prihlaseni, tak jestli by pro tebe byl problem do nej prenest tu funkcnost.
+
+Ve visits_patients.html je v jako jedinem souboru u nepotvrzene objednavky napsano "new" misto "unconfirmed" a taky se na teto strance nezavre modalni okno po kliknuti na Add
+
+Integrovat main-page.html jako stranku, ktera se zobrazi jako index misto prihlasovaciho formulare
 
 ## Michal
 -----------------
-Design combo boxu u editace Visit.
+~~Design combo boxu u editace Visit.~~
 
-Znazorneni validace formularu.
+~~Znazorneni validace formularu.~~
 
 Modalni okna prihlaseni/odhlaseni.
 
-Today: Smazat Status, zmenit proklik na usera na tlacitko Patient card.
+~~Today: Smazat Status, zmenit proklik na usera na tlacitko Patient card.~~
 
-Patient Card: zkusit odlišit radek s vysetrenim od radku s actama.
+~~Patient Card: zkusit odlišit radek s vysetrenim od radku s actama.~~
 
-Patient visits: zmenit stav z new na unconfirmed.
+~~Design main page~~
 
 
 ## Tom
