@@ -20,13 +20,17 @@ Dej mi prosim vedet, jestli kdyz vytvorim modalni okno pro prihlaseni, tak jestl
 
 ~~Integrovat main-page.html jako stranku, ktera se zobrazi jako index misto prihlasovaciho formulare~~
 
+Nefunguje logout button.
+
+Pridal jsem tam prvek notifikace novych unconfirmed visits, nachazi se v index.html na radku 61, aktualni hodnota je natvrdo 2, pokud neexistuje jednoduchy zpusob, jak tam vypsat pocet aktualnich unconfirmed visits, tak tam nechame neco napevno, dej vedet prosim.
+
 ## Michal
 -----------------
 ~~Design combo boxu u editace Visit.~~
 
 ~~Znazorneni validace formularu.~~
 
-Modalni okna prihlaseni/odhlaseni.
+~~Modalni okna prihlaseni/odhlaseni.~~
 
 ~~Today: Smazat Status, zmenit proklik na usera na tlacitko Patient card.~~
 
@@ -44,6 +48,8 @@ Modalni okna prihlaseni/odhlaseni.
 ~~Chtelo by to sjednotit format datumu,~~ do formularu doplnovat automaticky aktualni datum (asi bude chtit poresit s Matejem).
 
 Zkontrolovat zadani, abychom vedeli co nam jeste chybi.
+
+Napriklad pri vytvareni noveho pacienta je povinne pole Phone ... podle zadani by nemelo byt povinne nic co neni opravdu nezbytne, proklikej to vsude prosim.
 
 
 
