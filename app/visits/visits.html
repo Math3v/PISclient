@@ -23,7 +23,7 @@
           <th>
           </th>
         </tr>
-        <tr ng-repeat="visit in users | filter:{status: 'unconfirmed'}"> <!-- This should be done just for unconfirmed visits-->
+        <tr ng-repeat="visit in users | statusEquals:'unconfirmed'"> <!-- This should be done just for unconfirmed visits-->
           <td class="col-md-2" style="vertical-align:middle;">
             {{visit.date}}
           </td>
@@ -35,7 +35,7 @@
           </td>
           <td class="col-md-2" style="vertical-align:middle;">
             {{visit.status}} &nbsp;&nbsp;&nbsp;
-            <img ng-show="visit.status == 'new'" src="img/waiting.png" width="40" height="40"/>
+            <img ng-show="visit.status == 'unconfirmed'" src="img/waiting.png" width="40" height="40"/>
             <img ng-show="visit.status == 'confirmed'" src="img/accept.png" width="40" height="40"/>
           </td>
           <td style="vertical-align:middle;">
@@ -76,7 +76,7 @@
           <th>
           </th>
         </tr>
-        <tr ng-repeat="visit in users | filter:{status: 'confirmed'}"> <!-- This should be done just for confirmed visits-->
+        <tr ng-repeat="visit in users | statusEquals:'confirmed'"> <!-- This should be done just for confirmed visits-->
           <td class="col-md-2" style="vertical-align:middle;">
             {{visit.date}}
           </td>
@@ -88,7 +88,7 @@
           </td>
           <td class="col-md-2" style="vertical-align:middle;">
             {{visit.status}} &nbsp;&nbsp;&nbsp;
-            <img ng-show="visit.status == 'new'" src="img/waiting.png" width="40" height="40"/>
+            <img ng-show="visit.status == 'unconfirmed'" src="img/waiting.png" width="40" height="40"/>
             <img ng-show="visit.status == 'confirmed'" src="img/accept.png" width="40" height="40"/>
           </td>
           <td style="vertical-align:middle;">
@@ -126,7 +126,7 @@
               <label for="status">Status</label>
               <select ng-model="visit.status" class="form-control">
                 <option style="background-image: url('/img/accept.png');" value="confirmed"> confirmed</option>
-                <option style="background-image: url('/img/waiting.png');" value="new"> unconfirmed</option>
+                <option style="background-image: url('/img/waiting.png');" value="unconfirmed"> unconfirmed</option>
               </select>
             </div>
             <label for="sel_patient"><b>Patient:</b></label>
@@ -169,7 +169,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="newVisit(visit)" ng-disabled="Visit.$invalid">Add</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="newVisit(visit, false)" ng-disabled="Visit.$invalid">Add</button>
         </div>
       </div>
     </div>

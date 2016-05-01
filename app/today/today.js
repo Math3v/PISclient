@@ -17,20 +17,7 @@ angular.module('myApp.today', ['ngRoute'])
 
 .controller('todayController', ['$scope', '$http', 'apiUrl', function($scope, $http, apiUrl){
   
-    var today = new Date();
-    var dd = today.getDate();
-    var mm = today.getMonth()+1; //January is 0!
-    var yyyy = today.getFullYear();
-
-    if( dd < 10 ) {
-        dd = '0' + dd;
-    } 
-    if( mm < 10 ){
-        mm = '0' + mm;
-    } 
-    $scope.today = dd+'.'+mm+'.'+yyyy;
-    console.log( $scope.today );
-
+    
     $http({
       method: 'GET',
       url: apiUrl + '/Visits'

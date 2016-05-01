@@ -74,7 +74,7 @@ angular.module('myApp.services', [])
 				case 'show-examination':
 				case 'add-patient':
 				case 'edit-patient':
-				case 'delete-patient':
+				//case 'delete-patient':
 				case 'show-patient':
 				case 'edit-doctor':
 				case 'show-doctor':

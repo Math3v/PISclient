@@ -35,9 +35,11 @@ angular.module('myApp.visits', [])
 		$( "#editVisit" ).modal('show');
 	}
 
-	$scope.newVisit = function(visit) {
+	$scope.newVisit = function(visit, patient) {
 		visit.status = 'unconfirmed';
-		visit.patient_id = currentUserService.getUser().id;
+		if( patient === true) {
+			visit.patient_id = currentUserService.getUser().id;
+		}
 		$http({
 			method: 'POST',
 			url: apiUrl + '/Visits',
