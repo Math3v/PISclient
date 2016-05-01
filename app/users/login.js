@@ -35,6 +35,7 @@ angular.module('myApp.login', ['ngRoute'])
 			} else {
 				url = '/app/?#/visits-doctor';
 			}
+			$("#Login").modal('hide');
 			window.location.assign( url );
 		}, function(response) {
 			$scope.loginErrorMessage = "Invalid username or password";
