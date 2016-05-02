@@ -10,7 +10,7 @@
 	<button access="{{'add-'+obj}}" ng-click="newObject({role: 'admin'})">New admin</button>
 </ul-->
 
-<div class="container-fluid" ng-controller="patientsController">
+<div class="container-fluid" ng-controller="adminsController">
   <div class="panel panel-default">
     <div class="panel-heading">
       <h4>Admins</h4>
@@ -95,7 +95,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" ng-click="editObject(admin)" ng-disabled="Admin.$invalid">Save changes</button>
+          <button type="button" data-dismiss="modal" class="btn btn-primary" ng-click="editObject(admin)" ng-disabled="Admin.$invalid">Save changes</button>
         </div>
       </div>
     </div>

@@ -216,4 +216,18 @@ angular.module('myApp.users', ['ngRoute'])
     $( "#newDoctor" ).modal('show');
   }
   
+}])
+
+.controller('adminsController', ['$scope', '$http', 'apiUrl', function($scope, $http, apiUrl){
+
+  $scope.showEditModal = function(admin) {
+    $scope.admin = angular.copy( admin );
+    $( "#editAdmin" ).modal('show');
+  }
+
+  $scope.showNewModal = function() {
+    $scope.admin = {};
+    $( "#newAdmin" ).modal('show');
+  }
+
 }]);
