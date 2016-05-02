@@ -20,9 +20,9 @@ Dej mi prosim vedet, jestli kdyz vytvorim modalni okno pro prihlaseni, tak jestl
 
 ~~Integrovat main-page.html jako stranku, ktera se zobrazi jako index misto prihlasovaciho formulare~~
 
-Nefunguje logout button.
+~~Nefunguje logout button.~~
 
-Pridal jsem tam prvek notifikace novych unconfirmed visits, nachazi se v index.html na radku 61, aktualni hodnota je natvrdo 2, pokud neexistuje jednoduchy zpusob, jak tam vypsat pocet aktualnich unconfirmed visits, tak tam nechame neco napevno, dej vedet prosim.
+~~Pridal jsem tam prvek notifikace novych unconfirmed visits, nachazi se v index.html na radku 61, aktualni hodnota je natvrdo 2, pokud neexistuje jednoduchy zpusob, jak tam vypsat pocet aktualnich unconfirmed visits, tak tam nechame neco napevno, dej vedet prosim.~~
 
 ## Michal
 -----------------

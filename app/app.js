@@ -33,7 +33,7 @@ angular.module('myApp', [
 
 .run(['$rootScope', 'currentUserService', '$location', 'Idle', function($rootScope, currentUserService, $location, Idle){
 
-  //Idle.watch();
+  Idle.watch();
 
 	$rootScope.$on('$routeChangeStart', function(evnt, next) {
 		console.log( "Next ", next );
@@ -58,7 +58,7 @@ angular.module('myApp', [
 	})
 }])
 
-.controller('indexController', ['currentUserService', '$scope', '$location', 'Idle', function(currentUserService, $scope, $location, Idle){
+.controller('indexController', ['currentUserService', '$scope', '$location', 'Idle', '$http', 'apiUrl', function(currentUserService, $scope, $location, Idle, $http, apiUrl){
 
   console.log( "Index Controller" );
 
@@ -88,11 +88,23 @@ angular.module('myApp', [
   $scope.logout = function() {
     currentUserService.delUser();
     $scope.hasUser();
-    console.log( "Change to login" );
-    window.location.assign( '/app/?#/login' );
+    window.location.assign( '/app/#/' );
   }
 
   $scope.hasUser = function() {
     return currentUserService.hasUser();
   }
+
+  $scope.getUnconfirmedVisits = function() {
+    $http({
+      method: 'GET',
+      url: apiUrl+'/Visits',
+      params: {filter:{"where":{"status": "unconfirmed"}}}
+    }).then(function(response) {
+      $scope.unconfirmedCount = response.data.length;
+    }, function(err) {
+      console.log( err );
+    })
+  }
+  $scope.getUnconfirmedVisits();
 }]);
