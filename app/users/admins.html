@@ -1,4 +1,4 @@
-<h1>Admins</h1>
+<!--<h1>Admins</h1>
 <ul>
 	<li ng-repeat="user in users | filter: {role: 'admin'}">
 		<user user="user" 
@@ -8,7 +8,7 @@
 			delete-object="deleteObject(user)"></user>
 	</li>
 	<button access="{{'add-'+obj}}" ng-click="newObject({role: 'admin'})">New admin</button>
-</ul>
+</ul-->
 
 <div class="container-fluid" ng-controller="patientsController">
   <div class="panel panel-default">
@@ -58,7 +58,7 @@
       </table>
     </div>
   </div>
-  <button class="btn btn-success" aria-label="New Admin" data-toggle="modal" data-target="#newPatient">
+  <button class="btn btn-success" aria-label="New Admin" ng-click="showNewModal()">
     <span class="glyphicon glyphicon-plus" aria-hidden="true" access="{{'add-'+obj}}"></span> New Admin
   </button>
   
@@ -66,7 +66,7 @@
   <!-- Modal windows section -->
   
   <!-- Admin edit -->
-  <div class="modal fade" id="editPatient" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal fade" id="editAdmin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -74,7 +74,7 @@
           <h4 class="modal-title" id="myModalLabel">Edit Admin</h4>
         </div>
         <div class="modal-body">
-          <form role="form" data-toggle="validator" name="admin">
+          <form role="form" data-toggle="validator" name="Admin">
             <div class="form-group">
               <label for="name"><b>Name</b></label>
               <input type="text" class="form-control" id="name" placeholder="Frantisek Minarik" ng-model="admin.name" required>
@@ -85,7 +85,7 @@
             </div>
             <div class="form-group">
               <label for="phone"><b>Phone</b></label>
-              <input type="text" class="form-control" id="phone" placeholder="777555333" ng-model="admin.phone" required pattern="\d{9}">
+              <input type="text" class="form-control" id="phone" placeholder="777555333" ng-model="admin.phone" pattern="\d{9}">
             </div>
             <div class="form-group">
               <label for="address">Address</label>
@@ -95,14 +95,14 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" ng-click="editObject(admin)" ng-disabled="form.$invalid">Save changes</button>
+          <button type="button" class="btn btn-primary" ng-click="editObject(admin)" ng-disabled="Admin.$invalid">Save changes</button>
         </div>
       </div>
     </div>
   </div>
   
   <!-- New admin -->
-  <div class="modal fade" id="newCommission" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal fade" id="newAdmin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -121,7 +121,7 @@
             </div>
             <div class="form-group">
               <label for="phone"><b>Phone</b></label>
-              <input type="text" class="form-control" id="phone" placeholder="777555333" ng-model="admin.phone" required pattern="\d{9}">
+              <input type="text" class="form-control" id="phone" placeholder="777555333" ng-model="admin.phone" pattern="\d{9}">
             </div>
             <div class="form-group">
               <label for="address">Address</label>
@@ -131,7 +131,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" ng-click="modalNewObject(admin)" ng-disabled="Admin.$invalid">Add</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="modalNewObject(admin, {role: 'admin'})" ng-disabled="Admin.$invalid">Add</button>
         </div>
       </div>
     </div>
