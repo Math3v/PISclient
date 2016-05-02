@@ -45,11 +45,11 @@ Dej mi prosim vedet, jestli kdyz vytvorim modalni okno pro prihlaseni, tak jestl
 
 ~~U formularu by bylo dobre, kdyby byly povinne pole nejakym zpusobem zdurazneny i pro uzivatele (muzeme doladit spolu jak zvyraznene).~~
 
-~~Chtelo by to sjednotit format datumu,~~ do formularu doplnovat automaticky aktualni datum (asi bude chtit poresit s Matejem).
+~~Chtelo by to sjednotit format datumu, do formularu doplnovat automaticky aktualni datum (asi bude chtit poresit s Matejem).~~
 
-Zkontrolovat zadani, abychom vedeli co nam jeste chybi.
+~~Zkontrolovat zadani, abychom vedeli co nam jeste chybi.~~
 
-Napriklad pri vytvareni noveho pacienta je povinne pole Phone ... podle zadani by nemelo byt povinne nic co neni opravdu nezbytne, proklikej to vsude prosim.
+~~Napriklad pri vytvareni noveho pacienta je povinne pole Phone ... podle zadani by nemelo byt povinne nic co neni opravdu nezbytne, proklikej to vsude prosim.~~
 
 
 
